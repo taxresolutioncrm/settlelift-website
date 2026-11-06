@@ -1,0 +1,1 @@
+{"name": "SettleLift", "short_name": "SettleLift", "start_url": "/", "display": "standalone", "background_color": "#f5f3ed", "theme_color": "#101b36", "icons": [{"src": "/icon-192.png", "sizes": "192x192", "type": "image/png"}, {"src": "/icon-512.png", "sizes": "512x512", "type": "image/png"}]}
