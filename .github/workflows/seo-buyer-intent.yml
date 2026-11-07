@@ -1,0 +1,28 @@
+name: SettleLift buyer-intent SEO release gate
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'public/resources/choosing-debt-settlement-crm/**'
+      - '.github/workflows/seo-buyer-intent.yml'
+  workflow_dispatch:
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate debt settlement buyer guide structure and bilingual content
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          s=Path('public/resources/choosing-debt-settlement-crm/index.html').read_text()
+          assert s.count('<h1')==1
+          assert s.count('<section')==s.count('</section>')
+          assert 'crm-buyer-checklist' in s
+          assert 'data-es="Lista de comparación:' in s
+          assert 'https://settlelift.com/resources/choosing-debt-settlement-crm/' in s
+          assert '/resources/debt-settlement-implementation-checklist/' in s
+          assert '/resources/creditor-directory-workflows/' in s
+          assert 'SettleLift is in development' in s
+          print('PASS SettleLift buyer guide and bilingual structure')
+          PY
