@@ -1,4 +1,3 @@
-<?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://settlelift.com/about/</loc>
@@ -78,4 +77,4 @@
   <url>
     <loc>https://settlelift.com/workflows/tasks-calendar/</loc>
   </url>
-</urlset>
+<url><loc>https://settlelift.com/login/</loc></url></urlset>

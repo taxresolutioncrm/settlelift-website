@@ -9,3 +9,7 @@
 @media(min-width:901px) and (max-width:1100px){.hero-message{column-gap:40px}.hero-message h1{font-size:48px}.portrait-branches strong{font-size:16px}}
 .complete-review .detail-cover{max-width:none;margin-inline:0;padding-inline:max(52px,calc((100vw - 1216px)/2))}@media(max-width:1100px){.complete-review .detail-cover{padding-inline:32px}}@media(max-width:650px){.complete-review .detail-cover{padding-inline:22px}}
 .complete-review .security-grid{gap:18px}.complete-review .security-grid article{padding:27px;border-radius:5px;background:#f4f8ff}.complete-review .security-grid h3{font-size:23px;line-height:1.4;letter-spacing:-.5px}.complete-review .security-grid p{font-size:16px;line-height:1.9;color:#506987}.complete-review .security-grid+*{margin-top:30px}
+
+/* Visible CRM access on desktop and in the mobile navigation. */
+.masthead nav .nav-login{font-weight:750;color:#fff;border-bottom:2px solid #7395ff;padding-bottom:5px;white-space:nowrap}
+@media(max-width:1100px){.masthead nav{gap:14px}.masthead nav>a,.masthead nav>details>summary{font-size:13px}}
