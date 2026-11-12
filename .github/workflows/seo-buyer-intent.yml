@@ -3,7 +3,8 @@ on:
   pull_request:
     branches: [main]
     paths:
-      - 'public/resources/choosing-debt-settlement-crm/**'
+      - 'public/**'
+      - 'scripts/verify-site.py'
       - '.github/workflows/seo-buyer-intent.yml'
   workflow_dispatch:
 jobs:
@@ -26,3 +27,6 @@ jobs:
           assert 'SettleLift is in development' in s
           print('PASS SettleLift buyer guide and bilingual structure')
           PY
+
+      - name: Verify full site metadata, links and visual release assets
+        run: python3 scripts/verify-site.py
