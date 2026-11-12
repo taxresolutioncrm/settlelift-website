@@ -35,6 +35,9 @@ for path,page in pages.items():
  assert page.schemas,path
  assert 'noindex' not in ','.join(page.robots),path
  assert '/editorial.css?v=20261112-product' in path.read_text(),path
+ assert '/energy.css?v=20261112-connected' in path.read_text(),path
+ if path!=root/'index.html':
+  assert 'sl-interior' in path.read_text() and 'sl-page-hero' in path.read_text() and 'sl-page-visual' in path.read_text(),path
  assert 'siteLanguage' in path.read_text(),path
  for value in page.links:
   u=urlsplit(value)
@@ -48,6 +51,8 @@ locs={x.text for x in ET.parse(root/'sitemap.xml').iter() if x.tag.endswith('}lo
 assert locs==seen_canon,('Sitemap mismatch',locs^seen_canon)
 home=(root/'index.html').read_text()
 assert 'sl-editorial-home' in home and 'settlelift-client-workspace.jpg' in home
+assert all(x in home for x in ['sl-network','sl-tour-workbench','sl-bento','sl-launch-board'])
+assert (root/'energy.css').stat().st_size<100000
 assert all(s in home for s in ['SAMPLE DATA','IN DEVELOPMENT','shared backend are pending','/login/'])
 assert 'crm-buyer-checklist' in (root/'resources/choosing-debt-settlement-crm/index.html').read_text()
 assert (root/'assets/settlelift-client-workspace.jpg').stat().st_size<250000
