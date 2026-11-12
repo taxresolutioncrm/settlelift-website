@@ -12,3 +12,14 @@
 @media(prefers-reduced-motion:reduce){.sl-network-node,.sl-bento-card,.sl-interior .directory-card{transition:none!important}}
 /* Interior covers use the light-blue surface: keep every text layer at readable contrast. */
 .sl-interior .detail-cover .sl-page-copy>p{color:#435f84}.sl-interior .detail-cover .breadcrumb,.sl-interior .detail-cover .eyebrow,.sl-interior .detail-cover .sl-page-copy>span:first-child{color:#416a9f}.sl-interior .detail-development{color:#59789f;border-left-color:#2459f4}.sl-interior .detail-cover h1{color:#12243f}.sl-interior .process-list li::marker{content:''}
+
+/* All relationship-map cards are readable, actionable surfaces. */
+.sl-network-center,.sl-network-contact{background:#fff;color:#101b36;text-decoration:none;cursor:pointer;font-family:inherit;text-align:left}
+.sl-network-center{border-color:#bbd0ff;box-shadow:0 20px 40px #00113035}
+.sl-network-center small,.sl-network-contact small{color:#45648f}
+.sl-network-center strong,.sl-network-contact strong{color:#101b36}
+.sl-network-center div>span,.sl-network-contact div>span,.sl-network-contact strong span{color:#506889}
+.sl-map-action{margin-left:auto;color:#2855ff;font-size:20px}
+.sl-network-center:hover,.sl-network-contact:hover{background:#f2f6ff;border-color:#7097ff}
+.sl-network-center:focus-visible,.sl-network-contact:focus-visible{outline:3px solid #99b7ff;outline-offset:5px}
+@media(max-width:600px){.sl-network-center .sl-map-action{font-size:16px}.sl-network-contact .sl-map-action{position:absolute;right:10px;top:10px;font-size:14px}}
