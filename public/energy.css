@@ -23,3 +23,10 @@
 .sl-network-center:hover,.sl-network-contact:hover{background:#f2f6ff;border-color:#7097ff}
 .sl-network-center:focus-visible,.sl-network-contact:focus-visible{outline:3px solid #99b7ff;outline-offset:5px}
 @media(max-width:600px){.sl-network-center .sl-map-action{font-size:16px}.sl-network-contact .sl-map-action{position:absolute;right:10px;top:10px;font-size:14px}}
+
+/* Map cards share the same selection and lift behavior. */
+.sl-network-center,.sl-network-contact{transition:transform .2s,box-shadow .2s}
+.sl-network-center{transform:rotate(-1deg)}
+.sl-network-center:hover,.sl-network-contact:hover{transform:translateY(-5px);box-shadow:0 22px 45px #0004}
+.sl-network-center.active,.sl-network-contact.active{border:2px solid #7fa5ff;background:#eef4ff;box-shadow:0 0 0 5px #467cf32b,0 20px 40px #0002}
+@media(prefers-reduced-motion:reduce){.sl-network-center,.sl-network-contact{transition:none!important}}
