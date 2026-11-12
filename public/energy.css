@@ -30,3 +30,5 @@
 .sl-network-center:hover,.sl-network-contact:hover{transform:translateY(-5px);box-shadow:0 22px 45px #0004}
 .sl-network-center.active,.sl-network-contact.active{border:2px solid #7fa5ff;background:#eef4ff;box-shadow:0 0 0 5px #467cf32b,0 20px 40px #0002}
 @media(prefers-reduced-motion:reduce){.sl-network-center,.sl-network-contact{transition:none!important}}
+
+.sl-network-center.party-button{width:auto}
