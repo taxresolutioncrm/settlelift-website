@@ -35,7 +35,9 @@ for path,page in pages.items():
  assert page.schemas,path
  assert 'noindex' not in ','.join(page.robots),path
  assert '/editorial.css?v=20261112-product' in path.read_text(),path
- assert '/energy.css?v=20261112-connected' in path.read_text(),path
+ assert ('/energy.css?v=20261112-map-final' if path==root/'index.html' else '/energy.css?v=20261112-connected') in path.read_text(),path
+ assert path.read_text().count('GTM-W4MBL7WQ')==1,(path,'GTM duplicate or missing')
+ assert 'window.dataLayer=window.dataLayer||[]' in path.read_text(),(path,'dataLayer missing')
  if path!=root/'index.html':
   assert 'sl-interior' in path.read_text() and 'sl-page-hero' in path.read_text() and 'sl-page-visual' in path.read_text(),path
  assert 'siteLanguage' in path.read_text(),path
