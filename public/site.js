@@ -1,3 +1,5 @@
+/* Microsoft Clarity · SettleLift existing project ze2d5b2ixy */
+(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,'clarity','script','ze2d5b2ixy');
 let siteLocale='en',workflowIndex=0;
 const workflowCopy=[
 {en:['01 · Capture & follow up','A lead should create work, not disappear.','The prototype links each synthetic lead to a task, alert and unsent draft. Duplicate review is explicit, and conversion preserves those links.'],es:['01 · Captar y dar seguimiento','Un prospecto debe generar seguimiento, no desaparecer.','El prototipo vincula cada prospecto ficticio a una tarea, alerta y borrador sin enviar. La revisión de duplicados es expresa y la conversión conserva esos vínculos.']},
