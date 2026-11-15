@@ -23,6 +23,9 @@ class Page(HTMLParser):
  def handle_endtag(self,t):
   if t=='title':self.in_title=False
   if t=='script' and self.in_schema:self.schemas.append(json.loads(self.schema));self.in_schema=False
+tracking=(root/'site.js').read_text()
+assert tracking.count('ze2d5b2ixy')==2, 'SettleLift Clarity project must have exactly one loader, plus its comment'
+assert 'https://www.clarity.ms/tag/' in tracking
 pages={p:Page(p.read_text()) for p in root.rglob('*.html')}
 assert len(pages)==27,len(pages)
 seen_titles=set();seen_canon=set()
@@ -41,6 +44,7 @@ for path,page in pages.items():
  if path!=root/'index.html':
   assert 'sl-interior' in path.read_text() and 'sl-page-hero' in path.read_text() and 'sl-page-visual' in path.read_text(),path
  assert 'siteLanguage' in path.read_text(),path
+ assert path.read_text().count('/site.js?v=20261115-clarity')==1,(path,'shared Clarity script version missing or duplicated')
  for value in page.links:
   u=urlsplit(value)
   if u.scheme or u.netloc:continue
