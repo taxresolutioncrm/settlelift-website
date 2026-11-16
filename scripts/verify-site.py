@@ -59,7 +59,14 @@ home=(root/'index.html').read_text()
 assert 'sl-editorial-home' in home and 'settlelift-client-workspace.jpg' in home
 assert all(x in home for x in ['sl-network','sl-tour-workbench','sl-bento','sl-launch-board'])
 assert (root/'energy.css').stat().st_size<100000
-assert all(s in home for s in ['SAMPLE DATA','IN DEVELOPMENT','shared backend are pending','/login/'])
+assert all(value in home for value in ['SAMPLE DATA','/login/'])
+assert 'IN DEVELOPMENT' not in home and 'EN DESARROLLO' not in home
+assert 'development preview' not in home
+login=(root/'login/index.html').read_text()
+assert 'https://app.settlelift.com' in login, 'CRM login must open the actual SettleLift app'
+assert 'settlelift.rcruz187.chatgpt.site' not in login, 'Legacy preview login forbidden'
+assert 'Private development workspace' not in login, 'Obsolete development login heading'
+assert 'development workspace' not in login, 'Obsolete development access copy'
 assert 'crm-buyer-checklist' in (root/'resources/choosing-debt-settlement-crm/index.html').read_text()
 assert (root/'assets/settlelift-client-workspace.jpg').stat().st_size<250000
-print('PASS: 27 unique pages, metadata/schema/sitemap preserved, all local links/assets/anchors valid, shared styles and language controls present; sample status and lightweight product image verified.')
+print('PASS: 27 unique pages, metadata/schema/sitemap preserved, all local links/assets/anchors valid, shared styles and language controls present; illustrative sample status and lightweight product image verified.')
