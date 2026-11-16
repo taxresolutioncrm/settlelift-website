@@ -24,7 +24,8 @@ jobs:
           assert 'https://settlelift.com/resources/choosing-debt-settlement-crm/' in s
           assert '/resources/debt-settlement-implementation-checklist/' in s
           assert '/resources/creditor-directory-workflows/' in s
-          assert 'SettleLift is in development' in s
+          assert 'SettleLift provides a CRM workspace.' in s
+          assert 'SettleLift is in development' not in s
           print('PASS SettleLift buyer guide and bilingual structure')
           PY
 
