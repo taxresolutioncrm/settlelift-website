@@ -44,3 +44,12 @@ Work was performed on the isolated `develop/compact-preview-professional-report`
 
 ## Photo source register
 See `PHOTO_SOURCES.md`. No synthetic-person images were generated and no photographed subject is represented as an actual SettleLift customer or employee.
+
+## 2026-11-18 structural follow-up
+A subsequent desktop screenshot showed the top marketing composition visually tiny next to the CRM screenshot. Source review identified another design defect: the old opening layout stacked the hero copy and the photograph strip rather than treating them as a cohesive two-column product hero. CSS URLs were reused across the previous releases, risking stale browser styling.
+
+Updated `premium.css` with a new desktop hero layout using an explicit wide `1320px` container, two proportional columns, large headline, deliberate CTA placement, and a single impactful human photograph. The second photograph is suppressed in the hero to avoid the 'two tiny cards' treatment. Tablet and mobile layouts were addressed separately. Added a new heading before the CRM screenshot, a strict 720px maximum for its frame in both CSS and inline HTML attributes, and lazy loading. All 27 pages now request `premium.css?v=20261118-layout-v2` to invalidate earlier cached CSS.
+
+Static source checks confirmed 27/27 pages retain one H1, the GTM tag and updated stylesheet reference. No claim is made that a real browser has passed visual QA or that Cloudflare has deployed the commit; these must be checked on production using desktop and mobile viewports.
+
+No authenticated CRM data, production settlement metrics or proprietary branding assets were changed.
