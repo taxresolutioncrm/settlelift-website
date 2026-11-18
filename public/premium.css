@@ -121,3 +121,107 @@
 .sl-interior-photo-panel{height:350px}
 .sl-interior-photo-panel img{width:100%;height:350px;max-height:none;object-fit:cover}
 @media(max-width:740px){.sl-editorial-home .sl-product{padding:40px 0 49px!important}.sl-editorial-home #workspace>.sl-container{width:min(100% - 24px,760px)}.sl-report-mini-stats>div{padding:10px 8px}.sl-report-mini-stats b{font-size:20px}.sl-report-mini-header{padding:14px}.sl-report-mini-footer{padding:9px}.sl-interior-photo-panel,.sl-interior-photo-panel img{height:240px;min-height:240px}}
+
+/* 2026-11-18 final structural repair — reset miniature center-column presentation.
+   Desktop hero is one coherent two-column composition, not a tiny centered intro
+   followed by two postage-stamp photographs. */
+@media (min-width: 1025px) {
+  body.sl-editorial-home .sl-opening { padding: 36px 0 72px !important; min-height: 610px; }
+  body.sl-editorial-home .sl-opening > .sl-container {
+    width: min(1320px, calc(100% - 88px)) !important;
+    max-width: 1320px !important;
+    margin-inline: auto !important;
+    display: grid;
+    grid-template-columns: minmax(0, 1.03fr) minmax(0, .97fr);
+    column-gap: clamp(44px, 5vw, 94px);
+    align-items: center;
+  }
+  body.sl-editorial-home .sl-overline { grid-column: 1 / -1; margin-bottom: 38px; }
+  body.sl-editorial-home .sl-opening-grid {
+    display: flex !important; grid-column: 1; flex-direction: column;
+    gap: 24px; margin: 0; padding: 0 !important; min-width: 0;
+    align-items: flex-start;
+  }
+  body.sl-editorial-home .sl-opening h1 {
+    font-size: clamp(61px, 4.55vw, 81px) !important;
+    line-height: 1.045; letter-spacing: -.065em;
+    max-width: 680px; margin: 0;
+  }
+  body.sl-editorial-home .sl-opening h1>em {
+    white-space: normal; font-size: .82em; letter-spacing: -.055em; line-height: 1.14;
+    margin-top: 9px;
+  }
+  body.sl-editorial-home .sl-opening-copy { display:block !important; width:100%; max-width:520px; padding:0; }
+  body.sl-editorial-home .sl-opening .sl-intro {
+    font-size: clamp(17px, 1.3vw, 20px) !important;
+    line-height: 1.7; margin: 0 0 24px; max-width: 500px;
+  }
+  body.sl-editorial-home .sl-opening .sl-actions { gap: 14px; margin: 0; }
+  body.sl-editorial-home .sl-opening .sl-actions .button { padding: 15px 24px; font-size: 15px; min-height: 52px; }
+  body.sl-editorial-home .sl-opening .sl-actions .sl-link { font-size: 15px; }
+  body.sl-editorial-home .sl-opening .sl-caption { font-size: 11px !important; max-width: 470px; margin-top: 17px; }
+  body.sl-editorial-home .sl-people-hero {
+    grid-column: 2; display: block; position: relative;
+    width: 100%; height: 480px; margin: 0;
+    border-radius: 21px; overflow: hidden;
+    box-shadow: 0 32px 74px #112b4c25;
+  }
+  body.sl-editorial-home .sl-people-hero>.sl-photo-primary {
+    width: 100%; height: 100%; border-radius: 0; box-shadow: none;
+  }
+  body.sl-editorial-home .sl-people-hero>.sl-photo-side { display: none; }
+  body.sl-editorial-home .sl-people-hero>.sl-photo-primary figcaption { padding: 30px; }
+  body.sl-editorial-home .sl-people-hero>.sl-photo-primary figcaption strong { font-size: 22px; }
+  body.sl-editorial-home .sl-photo-footnote {
+    grid-column: 2; margin: -2px 0 0; font-size: 10px; gap: 10px;
+    align-items: center; justify-content: space-between;
+  }
+}
+@media (min-width: 761px) and (max-width: 1024px) {
+  body.sl-editorial-home .sl-opening > .sl-container { width:min(100% - 56px, 900px); }
+  body.sl-editorial-home .sl-opening h1 { font-size:clamp(52px, 6.8vw, 68px); }
+  body.sl-editorial-home .sl-people-hero { height:370px; }
+  body.sl-editorial-home .sl-overline { margin-bottom: 16px; }
+}
+@media (max-width: 760px) {
+  body.sl-editorial-home .sl-opening > .sl-container { width:calc(100% - 36px); margin-inline:auto; }
+  body.sl-editorial-home .sl-opening h1 { font-size:clamp(42px, 9vw, 58px) !important; letter-spacing:-.055em; }
+  body.sl-editorial-home .sl-opening-grid { display:flex !important; flex-direction:column; gap:17px; }
+  body.sl-editorial-home .sl-opening-copy { display:block !important; }
+  body.sl-editorial-home .sl-people-hero { margin-top:29px; }
+  body.sl-editorial-home .sl-people-hero>.sl-photo-side { display:none; }
+  body.sl-editorial-home .sl-people-hero>.sl-photo-primary { height:300px; }
+  body.sl-editorial-home .sl-people-hero { display:block; height:300px; }
+  body.sl-editorial-home .sl-photo-footnote { margin:8px 0 0; }
+}
+body.sl-editorial-home #workspace { padding-top:76px !important; padding-bottom:94px !important; }
+body.sl-editorial-home #workspace>.sl-container { width:min(1160px, calc(100% - 48px)) !important; }
+body.sl-editorial-home #workspace .sl-product-bar {
+  width:min(100%, 720px); max-width:720px; margin-inline:auto; border-radius:12px 12px 0 0;
+}
+body.sl-editorial-home #workspace a.sl-screen-link {
+  display:block !important; width: min(100%, 720px) !important;
+  max-width:720px !important; margin:0 auto !important;
+  overflow:hidden !important; box-sizing:border-box;
+  border-radius:0 0 12px 12px !important;
+}
+body.sl-editorial-home #workspace .sl-product-screen {
+  display:block !important; max-width:100% !important; width:100% !important;
+  height:auto !important; object-fit:contain !important;
+}
+body.sl-editorial-home #workspace .sl-screen-caption {
+  width:min(100%,720px); max-width:720px; margin:13px auto 0;
+}
+body.sl-editorial-home #workspace .sl-screen-intro {
+  text-align:center; width:min(100%,740px); margin:0 auto 30px;
+}
+body.sl-editorial-home #workspace .sl-screen-intro h2 {
+  font-size:clamp(29px,3.1vw,45px); line-height:1.15;
+  letter-spacing:-.05em; margin:8px 0 12px; color:#102743;
+}
+body.sl-editorial-home #workspace .sl-screen-intro p { font-size:15px; line-height:1.7; color:#5a7190; }
+@media(max-width:760px){
+ body.sl-editorial-home #workspace{padding:46px 0 60px !important;}
+ body.sl-editorial-home #workspace>.sl-container{width:calc(100% - 28px)!important;}
+ body.sl-editorial-home #workspace .sl-screen-intro{margin-bottom:20px;}
+}
