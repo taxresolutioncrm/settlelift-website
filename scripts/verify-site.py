@@ -64,7 +64,7 @@ assert all(value in home for value in ['SAMPLE DATA','/login/'])
 assert 'IN DEVELOPMENT' not in home and 'EN DESARROLLO' not in home
 assert 'development preview' not in home
 # Premium redesign invariants (GitHub Actions intentionally not invoked for this release).
-assert all('/premium.css?v=20261118-people-analytics' in p.read_text() for p in pages), 'Every public page must load premium design'
+assert all('/premium.css?v=20261118-layout-v2' in p.read_text() for p in pages), 'Every public page must load refreshed premium design'
 assert home.count('images.unsplash.com/')>=3, 'Hero and people section need licensed real photography'
 assert 'sl-premium-analytics' in home and 'sl-analytics-dashboard' in home, 'Premium analytics illustration missing'
 assert 'Fictional values demonstrate reporting design' in home, 'Illustrative graph must never claim production metrics'
