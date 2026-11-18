@@ -93,10 +93,10 @@
 /* November final UI audit: compact realistic CRM showcase, not a full-width screenshot. */
 .sl-editorial-home .sl-product{padding:64px 0 76px!important}
 .sl-editorial-home #workspace>.sl-container{width:min(1080px,calc(100% - 36px));margin-inline:auto}
-.sl-editorial-home #workspace .sl-product-bar{width:min(100%,860px);margin-inline:auto}
-.sl-editorial-home #workspace .sl-screen-link{display:block;width:min(100%,860px);max-width:860px;margin:0 auto!important;border-radius:13px;overflow:hidden;border:1px solid #d0dfee;box-shadow:0 24px 55px #0e2a481c;line-height:0;background:#fff}
+.sl-editorial-home #workspace .sl-product-bar{width:min(100%,760px);margin-inline:auto}
+.sl-editorial-home #workspace .sl-screen-link{display:block;width:min(100%,760px);max-width:760px;margin:0 auto!important;border-radius:13px;overflow:hidden;border:1px solid #d0dfee;box-shadow:0 24px 55px #0e2a481c;line-height:0;background:#fff}
 .sl-editorial-home #workspace img.sl-product-screen{display:block;width:100%;max-width:100%;height:auto;object-fit:contain;margin:0;border:0;border-radius:0;box-shadow:none}
-.sl-editorial-home #workspace .sl-screen-caption{width:min(100%,860px);margin:13px auto 0;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
+.sl-editorial-home #workspace .sl-screen-caption{width:min(100%,760px);margin:13px auto 0;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
 .sl-report-mini{background:linear-gradient(180deg,#fff,#f8fbff);font-family:inherit;text-align:left;color:#1a385a;min-height:270px;padding:0 0 3px}
 .sl-report-mini-header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:17px 18px 15px;border-bottom:1px solid #e4edf6}
 .sl-report-mini-header span{color:#6683a6;font-size:9px;letter-spacing:.09em;font-weight:800;display:block;margin-bottom:6px}
@@ -120,4 +120,4 @@
 .sl-bento-reports .sl-report-mini{height:100%}
 .sl-interior-photo-panel{height:350px}
 .sl-interior-photo-panel img{width:100%;height:350px;max-height:none;object-fit:cover}
-@media(max-width:740px){.sl-editorial-home .sl-product{padding:40px 0 49px!important}.sl-editorial-home #workspace>.sl-container{width:min(100% - 24px,860px)}.sl-report-mini-stats>div{padding:10px 8px}.sl-report-mini-stats b{font-size:20px}.sl-report-mini-header{padding:14px}.sl-report-mini-footer{padding:9px}.sl-interior-photo-panel,.sl-interior-photo-panel img{height:240px;min-height:240px}}
+@media(max-width:740px){.sl-editorial-home .sl-product{padding:40px 0 49px!important}.sl-editorial-home #workspace>.sl-container{width:min(100% - 24px,760px)}.sl-report-mini-stats>div{padding:10px 8px}.sl-report-mini-stats b{font-size:20px}.sl-report-mini-header{padding:14px}.sl-report-mini-footer{padding:9px}.sl-interior-photo-panel,.sl-interior-photo-panel img{height:240px;min-height:240px}}
