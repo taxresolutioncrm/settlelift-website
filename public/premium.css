@@ -79,3 +79,13 @@
 .sl-mini-dashboard-row{display:grid;grid-template-columns:1fr auto;gap:8px 14px;align-items:center;font-size:11px;font-weight:800;color:#345578}
 .sl-mini-dashboard-row b{font-size:13px;color:#0e3f8a}
 .sl-mini-dashboard-row i{grid-column:1/-1;background:linear-gradient(90deg,#1873f5 var(--pct),#dce8fb var(--pct));height:8px;border-radius:9px;display:block}
+
+/* Finish: centered interior photography, premium product frame and responsive spacing. */
+.sl-interior-photo-panel.wrap{margin:37px auto 55px}
+.sl-editorial-home .sl-product-screen{border:1px solid #b9cde9;border-radius:0 0 13px 13px;box-shadow:0 26px 65px #142b4f24}
+.sl-editorial-home .sl-product{background:linear-gradient(180deg,#ecf4ff 0%,#fff 100%)}
+.sl-editorial-home .sl-tour-workbench{box-shadow:0 24px 70px #17365c20;border-color:#c4d6eb}
+.sl-editorial-home .sl-bento-card:hover{box-shadow:0 24px 55px #142e512a;transform:translateY(-3px)}
+.sl-editorial-home .sl-analytics-dashboard{transform:translateZ(0)}
+.sl-photo-section .sl-figure-corner{z-index:2}
+@media(max-width:580px){.sl-interior-photo-panel.wrap{margin:20px auto 35px}.sl-photo-footnote{align-items:flex-start;flex-direction:column;gap:5px}.sl-photo-grid .sl-figure-corner{left:11px;bottom:-15px}}
