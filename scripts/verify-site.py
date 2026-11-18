@@ -71,7 +71,7 @@ assert 'Fictional values demonstrate reporting design' in home, 'Illustrative gr
 assert 'sl-report-mini' in home and 'sl-report-mini-chart' in home and 'sl-mini-dashboard' not in home, 'Mini reporting card must use the finished chart design'
 assert '<section id="workspace" class="sl-product"><div class="sl-container">' in home, 'Malformed CRM showcase section'
 assert '<section id="workspace" class="sl-product"<' not in home, 'Broken HTML tag must not return'
-assert 'sl-screen-link' in home and 'max-width:860px' in (root/'premium.css').read_text(), 'CRM screenshot must remain capped and framed'
+assert 'sl-screen-link' in home and 'max-width:760px' in (root/'premium.css').read_text(), 'CRM screenshot must remain capped and framed'
 photo_sources={}
 for path in pages:
  for photo in re.findall(r'images\\.unsplash\\.com/(photo-[\\w-]+)',path.read_text()):
