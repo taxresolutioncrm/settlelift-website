@@ -81,6 +81,15 @@ assert all(len(used_by)==1 for used_by in photo_sources.values()), ('Photo reuse
 assert sum(1 for p in pages if 'sl-interior-photo-panel' in p.read_text())>=15, 'Each major feature page needs a distinct image'
 assert (root/'premium.css').stat().st_size>8500, 'Missing premium responsive layout'
 assert (root.parent/'PHOTO_SOURCES.md').exists(), 'Photographic license/source record missing'
+
+# Closeout regression gates: sitewide CSS cache bust and actual hero scaling.
+assert all('/premium.css?v=20261118-layout-v2' in p.read_text() for p in pages), 'Premium CSS querystring must be updated sitewide'
+assert '<section id="workspace" class="sl-product"><div class="sl-container">' in home, 'CRM section must be structurally valid'
+assert 'sl-screen-intro' in home, 'CRM showcase must have an introduction before screenshot'
+assert 'max-width:720px' in home, 'Screenshot must have inline size cap, even if CSS is stale'
+assert 'hero-layout-qa-closeout' in (root/'premium.css').read_text() or 'final structural repair' in (root/'premium.css').read_text(), 'New desktop hero structure absent'
+assert 'grid-template-columns: minmax(0, 1.03fr) minmax(0, .97fr)' in (root/'premium.css').read_text(), 'Desktop hero must use split composition'
+assert 'body.sl-editorial-home .sl-opening > .sl-container' in (root/'premium.css').read_text(), 'Page wide hero layout override is missing'
 login=(root/'login/index.html').read_text()
 assert 'https://app.settlelift.com' in login, 'CRM login must open the actual SettleLift app'
 assert 'settlelift.rcruz187.chatgpt.site' not in login, 'Legacy preview login forbidden'
