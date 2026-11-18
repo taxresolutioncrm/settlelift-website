@@ -62,6 +62,14 @@ assert (root/'energy.css').stat().st_size<100000
 assert all(value in home for value in ['SAMPLE DATA','/login/'])
 assert 'IN DEVELOPMENT' not in home and 'EN DESARROLLO' not in home
 assert 'development preview' not in home
+# Premium redesign invariants (GitHub Actions intentionally not invoked for this release).
+assert all('/premium.css?v=20261118-people-analytics' in p.read_text() for p in pages), 'Every public page must load premium design'
+assert home.count('images.unsplash.com/')>=3, 'Hero and people section need licensed real photography'
+assert 'sl-premium-analytics' in home and 'sl-analytics-dashboard' in home, 'Premium analytics illustration missing'
+assert 'Fictional values demonstrate reporting design' in home, 'Illustrative graph must never claim production metrics'
+assert 'sl-mini-dashboard' in home and 'sl-chart-bars' not in home, 'Elementary bars should be replaced'
+assert (root/'premium.css').stat().st_size>8500, 'Missing premium responsive layout'
+assert (root.parent/'PHOTO_SOURCES.md').exists(), 'Photographic license/source record missing'
 login=(root/'login/index.html').read_text()
 assert 'https://app.settlelift.com' in login, 'CRM login must open the actual SettleLift app'
 assert 'settlelift.rcruz187.chatgpt.site' not in login, 'Legacy preview login forbidden'
