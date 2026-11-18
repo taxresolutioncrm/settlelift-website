@@ -74,7 +74,7 @@ assert '<section id="workspace" class="sl-product"<' not in home, 'Broken HTML t
 assert 'sl-screen-link' in home and 'max-width:760px' in (root/'premium.css').read_text(), 'CRM screenshot must remain capped and framed'
 photo_sources={}
 for path in pages:
- for photo in re.findall(r'images\\.unsplash\\.com/(photo-[\\w-]+)',path.read_text()):
+ for photo in re.findall(r'images\.unsplash\.com/(photo-[\w-]+)',path.read_text()):
   photo_sources.setdefault(photo,[]).append(path.relative_to(root).as_posix())
 assert len(photo_sources)>=18, ('Expected unique photos across product pages',len(photo_sources))
 assert all(len(used_by)==1 for used_by in photo_sources.values()), ('Photo reused across unrelated pages',[(p,locations) for p,locations in photo_sources.items() if len(locations)>1])
