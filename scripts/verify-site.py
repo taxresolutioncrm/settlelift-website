@@ -2,6 +2,7 @@ from pathlib import Path
 from html.parser import HTMLParser
 from urllib.parse import urlsplit,unquote
 import json,xml.etree.ElementTree as ET
+import re
 root=Path(__file__).resolve().parents[1]/'public'
 class Page(HTMLParser):
  def __init__(self,text):
@@ -67,7 +68,17 @@ assert all('/premium.css?v=20261118-people-analytics' in p.read_text() for p in 
 assert home.count('images.unsplash.com/')>=3, 'Hero and people section need licensed real photography'
 assert 'sl-premium-analytics' in home and 'sl-analytics-dashboard' in home, 'Premium analytics illustration missing'
 assert 'Fictional values demonstrate reporting design' in home, 'Illustrative graph must never claim production metrics'
-assert 'sl-mini-dashboard' in home and 'sl-chart-bars' not in home, 'Elementary bars should be replaced'
+assert 'sl-report-mini' in home and 'sl-report-mini-chart' in home and 'sl-mini-dashboard' not in home, 'Mini reporting card must use the finished chart design'
+assert '<section id="workspace" class="sl-product"><div class="sl-container">' in home, 'Malformed CRM showcase section'
+assert '<section id="workspace" class="sl-product"<' not in home, 'Broken HTML tag must not return'
+assert 'sl-screen-link' in home and 'max-width:860px' in (root/'premium.css').read_text(), 'CRM screenshot must remain capped and framed'
+photo_sources={}
+for path in pages:
+ for photo in re.findall(r'images\\.unsplash\\.com/(photo-[\\w-]+)',path.read_text()):
+  photo_sources.setdefault(photo,[]).append(path.relative_to(root).as_posix())
+assert len(photo_sources)>=18, ('Expected unique photos across product pages',len(photo_sources))
+assert all(len(used_by)==1 for used_by in photo_sources.values()), ('Photo reused across unrelated pages',[(p,locations) for p,locations in photo_sources.items() if len(locations)>1])
+assert sum(1 for p in pages if 'sl-interior-photo-panel' in p.read_text())>=15, 'Each major feature page needs a distinct image'
 assert (root/'premium.css').stat().st_size>8500, 'Missing premium responsive layout'
 assert (root.parent/'PHOTO_SOURCES.md').exists(), 'Photographic license/source record missing'
 login=(root/'login/index.html').read_text()
