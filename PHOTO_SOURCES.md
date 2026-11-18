@@ -22,9 +22,9 @@ These images are illustrative commercial/business photography. They do **not** p
 | Funding planning | `photo-1551836022-4c4c79ecde51` |
 | Intake & enrollment | `photo-1543269865-cbf427effbad` |
 | Multi-office | `photo-1556761175-4b46a572b786` |
-| Leads | `photo-1524758631624-e2822e304c36` |
-| Tasks & calendar | `photo-1504384308090-c894fdcc538d` |
-| Integrations | `photo-1497366811353-6870744d04b2` |
+| Leads | `photo-1758518727929-4506fc031e1c` |
+| Tasks & calendar | `photo-1758873268705-bb756c95f26a` |
+| Integrations | `photo-1758518726741-6451f7f71348` |
 
 All assets are loaded via `https://images.unsplash.com/<asset-id>` with width, crop and quality parameters. Asset provenance uses the actual image ID rather than invented photographer names. Before purchase or external print use, verify the original image page and license.
 
@@ -33,3 +33,8 @@ All assets are loaded via `https://images.unsplash.com/<asset-id>` with width, c
 - Reporting card: replaced generic horizontal progress bars with a six-week line chart and properly labeled sample KPIs.
 - Larger analytics dashboard: illustrative sample values only; not live product totals.
 - No results, settlement acceptance, revenue or financial outcomes are implied by the synthetic chart.
+
+The newest three replacements were confirmed as free-to-use Unsplash assets in their original photo listings:
+- Lead management — https://unsplash.com/photos/four-business-people-in-a-meeting-discussing-documents-YHC8oV7tcdM
+- Tasks & calendar — https://unsplash.com/photos/colleagues-collaborating-at-a-modern-office-desk-0iTp1WNlMGc
+- Integrations — https://unsplash.com/photos/three-business-people-in-a-meeting-ryxUueL6ffY
