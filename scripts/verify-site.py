@@ -87,6 +87,9 @@ expected_page_photos={
  'features/intake-enrollment/index.html':'photo-1774205884989-37f0f2271503',
  'features/negotiations/index.html':'photo-1714079761488-e0c9b9ac4138',
  'features/reporting/index.html':'photo-1758691736542-c437fea2c673',
+ 'features/multi-office/index.html':'photo-1760346546839-aced24accdff',
+ 'workflows/tasks-calendar/index.html':'photo-1435527173128-983b87201f4d',
+ 'platform/index.html':'photo-1768483538267-fce52de424d5',
 }
 for page_rel,photo_id in expected_page_photos.items():
  text=(root/page_rel).read_text()
