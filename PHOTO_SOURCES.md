@@ -13,14 +13,14 @@ These images are illustrative commercial/business photography. They do **not** p
 | About | `photo-1521737711867-e3b97375f902` |
 | Platform | `photo-1551434678-e076c223a692` |
 | Negotiations | `photo-1714079761488-e0c9b9ac4138` |
-| Creditors | `photo-1552664730-d307ca884978` |
+| Creditors | `photo-1762427354051-a9bdb181ae3b` |
 | Implementation | `photo-1522071820081-009f0129c71c` |
 | Reporting | `photo-1758691736542-c437fea2c673` |
-| Client portal | `photo-1556761175-5973dc0f32e7` |
+| Client portal | `photo-1758611974982-ca55f12b3378` |
 | Communications | `photo-1712159018726-4564d92f3ec2` |
 | Documents & signatures | `photo-1764231467852-b609a742e082` |
 | Funding planning | `photo-1772588627327-1eeddcf73c11` |
-| Intake & enrollment | `photo-1543269865-cbf427effbad` |
+| Intake & enrollment | `photo-1774205884989-37f0f2271503` |
 | Multi-office | `photo-1556761175-4b46a572b786` |
 | Leads | `photo-1758518727929-4506fc031e1c` |
 | Tasks & calendar | `photo-1758873268705-bb756c95f26a` |
@@ -49,3 +49,8 @@ Five formerly meeting-style images were replaced with visually distinct, workflo
 - Negotiations — client communication with a headset: https://unsplash.com/photos/a-man-wearing-headphones-sitting-in-front-of-a-laptop-computer-LSOIjuBiIuQ
 
 These are illustrative stock photographs, not SettleLift staff, customers, results, product integrations, or CRM screenshots. Preserve the unique image-per-page invariant.
+
+Additional distinct photographic subjects:
+- Client portal — individual user checking a phone beside a laptop: https://unsplash.com/photos/young-woman-using-phone-at-desk-with-laptop-QpuRvyYQ5kA
+- Intake & enrollment — professional working through phone inquiries and paperwork: https://unsplash.com/photos/woman-on-phone-at-messy-desk-with-papers-and-laptop-P0Q1V-7wqrQ
+- Creditor management — organized financial documents and calculator: https://unsplash.com/photos/desk-with-calculator-charts-and-binders-FVwy7PBiSUo
