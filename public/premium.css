@@ -122,106 +122,92 @@
 .sl-interior-photo-panel img{width:100%;height:350px;max-height:none;object-fit:cover}
 @media(max-width:740px){.sl-editorial-home .sl-product{padding:40px 0 49px!important}.sl-editorial-home #workspace>.sl-container{width:min(100% - 24px,760px)}.sl-report-mini-stats>div{padding:10px 8px}.sl-report-mini-stats b{font-size:20px}.sl-report-mini-header{padding:14px}.sl-report-mini-footer{padding:9px}.sl-interior-photo-panel,.sl-interior-photo-panel img{height:240px;min-height:240px}}
 
-/* 2026-11-18 final structural repair — reset miniature center-column presentation.
-   Desktop hero is one coherent two-column composition, not a tiny centered intro
-   followed by two postage-stamp photographs. */
-@media (min-width: 1025px) {
-  body.sl-editorial-home .sl-opening { padding: 36px 0 72px !important; min-height: 610px; }
-  body.sl-editorial-home .sl-opening > .sl-container {
-    width: min(1320px, calc(100% - 88px)) !important;
-    max-width: 1320px !important;
-    margin-inline: auto !important;
-    display: grid;
-    grid-template-columns: minmax(0, 1.03fr) minmax(0, .97fr);
-    column-gap: clamp(44px, 5vw, 94px);
-    align-items: center;
-  }
-  body.sl-editorial-home .sl-overline { grid-column: 1 / -1; margin-bottom: 38px; }
-  body.sl-editorial-home .sl-opening-grid {
-    display: flex !important; grid-column: 1; flex-direction: column;
-    gap: 24px; margin: 0; padding: 0 !important; min-width: 0;
-    align-items: flex-start;
-  }
-  body.sl-editorial-home .sl-opening h1 {
-    font-size: clamp(61px, 4.55vw, 81px) !important;
-    line-height: 1.045; letter-spacing: -.065em;
-    max-width: 680px; margin: 0;
-  }
-  body.sl-editorial-home .sl-opening h1>em {
-    white-space: normal; font-size: .82em; letter-spacing: -.055em; line-height: 1.14;
-    margin-top: 9px;
-  }
-  body.sl-editorial-home .sl-opening-copy { display:block !important; width:100%; max-width:520px; padding:0; }
-  body.sl-editorial-home .sl-opening .sl-intro {
-    font-size: clamp(17px, 1.3vw, 20px) !important;
-    line-height: 1.7; margin: 0 0 24px; max-width: 500px;
-  }
-  body.sl-editorial-home .sl-opening .sl-actions { gap: 14px; margin: 0; }
-  body.sl-editorial-home .sl-opening .sl-actions .button { padding: 15px 24px; font-size: 15px; min-height: 52px; }
-  body.sl-editorial-home .sl-opening .sl-actions .sl-link { font-size: 15px; }
-  body.sl-editorial-home .sl-opening .sl-caption { font-size: 11px !important; max-width: 470px; margin-top: 17px; }
-  body.sl-editorial-home .sl-people-hero {
-    grid-column: 2; display: block; position: relative;
-    width: 100%; height: 480px; margin: 0;
-    border-radius: 21px; overflow: hidden;
-    box-shadow: 0 32px 74px #112b4c25;
-  }
-  body.sl-editorial-home .sl-people-hero>.sl-photo-primary {
-    width: 100%; height: 100%; border-radius: 0; box-shadow: none;
-  }
-  body.sl-editorial-home .sl-people-hero>.sl-photo-side { display: none; }
-  body.sl-editorial-home .sl-people-hero>.sl-photo-primary figcaption { padding: 30px; }
-  body.sl-editorial-home .sl-people-hero>.sl-photo-primary figcaption strong { font-size: 22px; }
-  body.sl-editorial-home .sl-photo-footnote {
-    grid-column: 2; margin: -2px 0 0; font-size: 10px; gap: 10px;
-    align-items: center; justify-content: space-between;
-  }
+/* SettleLift unified composition system — November 2026.
+   Full-size editorial hero, restrained product preview, consistent interior pages. */
+:root{--sl-display-ink:#102844;--sl-soft-blue:#f1f6fd;--sl-edge:#d9e5f1}
+.sl-editorial-home .sl-opening{padding:34px 0 66px!important;min-height:0;background:linear-gradient(130deg,#fff 20%,#eef5ff 100%)}
+.sl-editorial-home .sl-opening:before{opacity:.45}
+.sl-editorial-home .sl-opening>.sl-container{width:min(1260px,calc(100% - 80px));max-width:1260px;margin-inline:auto;display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);column-gap:clamp(35px,4.5vw,80px);row-gap:28px;align-items:center}
+.sl-editorial-home .sl-overline{grid-column:1/-1;margin:0 0 14px;padding-bottom:18px}
+.sl-editorial-home .sl-opening-grid{grid-column:1;display:flex!important;flex-direction:column;align-items:flex-start;gap:24px;padding:0!important;margin:0;min-width:0}
+.sl-editorial-home .sl-opening h1{font-size:clamp(53px,4.6vw,75px)!important;letter-spacing:-.063em;line-height:1.07;max-width:650px;color:var(--sl-display-ink)}
+.sl-editorial-home .sl-opening h1>em{font-size:.82em;line-height:1.15;letter-spacing:-.05em;white-space:normal;margin-top:10px}
+.sl-editorial-home .sl-opening-copy{display:block!important;width:100%;max-width:520px;padding:0}
+.sl-editorial-home .sl-opening .sl-intro{font-size:clamp(17px,1.35vw,20px)!important;line-height:1.65;max-width:500px;margin:0 0 24px}
+.sl-editorial-home .sl-opening .sl-actions{display:flex;align-items:center;flex-wrap:wrap;gap:14px;margin:0}
+.sl-editorial-home .sl-opening .sl-actions .button{font-size:15px;min-height:51px;padding:14px 25px}
+.sl-editorial-home .sl-opening .sl-actions .sl-link{font-size:15px}
+.sl-editorial-home .sl-opening .sl-caption{font-size:11px!important;max-width:485px;line-height:1.6;margin-top:17px}
+.sl-editorial-home .sl-people-hero{grid-column:2;position:relative;display:block;width:100%;height:465px;margin:0;overflow:hidden;border-radius:21px;box-shadow:0 28px 65px #0d264327}
+.sl-editorial-home .sl-people-hero>.sl-photo-primary{width:100%;height:100%;border:0;border-radius:0;box-shadow:none}
+.sl-editorial-home .sl-people-hero>.sl-photo-side{display:none}
+.sl-editorial-home .sl-people-hero>.sl-photo-primary img{height:100%;object-fit:cover}
+.sl-editorial-home .sl-people-hero>.sl-photo-primary figcaption{padding:28px}
+.sl-editorial-home .sl-people-hero figcaption strong{font-size:22px;max-width:470px}
+.sl-editorial-home .sl-photo-footnote{grid-column:2;margin:0;font-size:10px;line-height:1.45;gap:8px}
+.sl-editorial-home #workspace{padding:80px 0!important;background:#f3f7fc}
+.sl-editorial-home #workspace>.sl-workspace-showcase{width:min(1120px,calc(100% - 80px))!important;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,460px);align-items:center;gap:clamp(38px,5vw,85px);margin-inline:auto}
+.sl-editorial-home #workspace .sl-screen-intro{text-align:left;width:auto;max-width:520px;margin:0}
+.sl-editorial-home #workspace .sl-screen-intro h2{font-size:clamp(34px,3.5vw,51px);line-height:1.12;letter-spacing:-.055em;color:var(--sl-display-ink);margin:12px 0 18px}
+.sl-editorial-home #workspace .sl-screen-intro p{font-size:17px;line-height:1.75;color:#526c88;max-width:510px}
+.sl-showcase-points{display:grid;gap:13px;margin:26px 0 27px}
+.sl-showcase-points>span{font-size:14px;font-weight:750;color:#274b71;display:flex;align-items:center;gap:12px}
+.sl-showcase-points>span:before{content:"✓";display:grid;place-items:center;width:24px;height:24px;flex-shrink:0;border-radius:50%;background:#dae9ff;color:#155ee2;font-size:13px}
+.sl-editorial-home .sl-showcase-cta{display:inline-flex;align-items:center;justify-content:center;font-size:14px;padding:14px 23px}
+.sl-editorial-home #workspace .sl-workspace-preview{width:100%;max-width:460px;margin-inline:auto;min-width:0;border:1px solid #d3e1f0;border-radius:16px;background:#fff;box-shadow:0 25px 65px #102b4a19;overflow:hidden}
+.sl-editorial-home #workspace .sl-workspace-preview .sl-product-bar{width:100%;max-width:none;border-radius:0;margin:0;padding:14px 17px;box-sizing:border-box}
+.sl-editorial-home #workspace .sl-workspace-preview .sl-product-bar b{font-size:12px}
+.sl-editorial-home #workspace .sl-workspace-preview .sl-product-bar>span{font-size:9px}
+.sl-editorial-home #workspace .sl-workspace-preview a.sl-screen-link{display:block!important;width:100%!important;max-width:460px!important;margin:0!important;border:0!important;border-radius:0!important;box-shadow:none!important}
+.sl-editorial-home #workspace .sl-workspace-preview img.sl-product-screen{display:block!important;width:100%!important;max-width:100%!important;height:auto!important;aspect-ratio:1363/936;object-fit:contain!important;border:0;border-radius:0;box-shadow:none}
+.sl-editorial-home #workspace .sl-workspace-preview .sl-screen-caption{display:block;width:auto;max-width:none;margin:0;padding:12px 16px 15px;border-top:1px solid #e6eef6;font-size:11px;line-height:1.55;color:#67809a}
+.sl-editorial-home .sl-photo-section{padding-block:85px 100px}
+.sl-editorial-home .sl-photo-grid{gap:clamp(38px,5vw,82px)}
+.sl-editorial-home .sl-photo-grid h2{font-size:clamp(38px,4vw,57px)}
+.sl-editorial-home .sl-premium-analytics{padding-block:85px 95px}
+.sl-editorial-home .sl-tools,.sl-editorial-home .sl-tour{padding-block:78px}
+.sl-editorial-home .sl-bento-card{border-radius:16px;overflow:hidden}
+.sl-interior .detail-cover.sl-page-hero{max-width:1260px;gap:clamp(28px,4vw,70px);align-items:center}
+.sl-interior .detail-cover h1{font-size:clamp(42px,4.4vw,66px);line-height:1.12;letter-spacing:-.055em}
+.sl-interior .detail-cover .sl-page-copy>p{font-size:17px;line-height:1.7;max-width:600px}
+.sl-interior .sl-interior-photo-panel.wrap{margin-top:32px;margin-bottom:60px;max-width:1190px;border-radius:18px}
+.sl-interior .sl-interior-photo-panel img{object-position:center 40%}
+.sl-interior .detail-body>section{scroll-margin-top:110px}
+.sl-interior .conversation-band{border-radius:18px}
+@media(max-width:1024px){
+.sl-editorial-home .sl-opening>.sl-container{width:min(900px,calc(100% - 52px));grid-template-columns:1fr;row-gap:25px}
+.sl-editorial-home .sl-overline,.sl-editorial-home .sl-opening-grid,.sl-editorial-home .sl-people-hero,.sl-editorial-home .sl-photo-footnote{grid-column:1}
+.sl-editorial-home .sl-opening-grid{gap:18px}
+.sl-editorial-home .sl-opening h1{font-size:clamp(48px,7vw,66px)!important}
+.sl-editorial-home .sl-people-hero{height:370px}
+.sl-editorial-home .sl-photo-footnote{margin:0}
+.sl-editorial-home #workspace>.sl-workspace-showcase{width:min(880px,calc(100% - 52px))!important;grid-template-columns:minmax(0,1fr) minmax(0,390px);gap:32px}
+.sl-editorial-home #workspace .sl-workspace-preview{max-width:390px}
 }
-@media (min-width: 761px) and (max-width: 1024px) {
-  body.sl-editorial-home .sl-opening > .sl-container { width:min(100% - 56px, 900px); }
-  body.sl-editorial-home .sl-opening h1 { font-size:clamp(52px, 6.8vw, 68px); }
-  body.sl-editorial-home .sl-people-hero { height:370px; }
-  body.sl-editorial-home .sl-overline { margin-bottom: 16px; }
-}
-@media (max-width: 760px) {
-  body.sl-editorial-home .sl-opening > .sl-container { width:calc(100% - 36px); margin-inline:auto; }
-  body.sl-editorial-home .sl-opening h1 { font-size:clamp(42px, 9vw, 58px) !important; letter-spacing:-.055em; }
-  body.sl-editorial-home .sl-opening-grid { display:flex !important; flex-direction:column; gap:17px; }
-  body.sl-editorial-home .sl-opening-copy { display:block !important; }
-  body.sl-editorial-home .sl-people-hero { margin-top:29px; }
-  body.sl-editorial-home .sl-people-hero>.sl-photo-side { display:none; }
-  body.sl-editorial-home .sl-people-hero>.sl-photo-primary { height:300px; }
-  body.sl-editorial-home .sl-people-hero { display:block; height:300px; }
-  body.sl-editorial-home .sl-photo-footnote { margin:8px 0 0; }
-}
-body.sl-editorial-home #workspace { padding-top:76px !important; padding-bottom:94px !important; }
-body.sl-editorial-home #workspace>.sl-container { width:min(1160px, calc(100% - 48px)) !important; }
-body.sl-editorial-home #workspace .sl-product-bar {
-  width:min(100%, 720px); max-width:720px; margin-inline:auto; border-radius:12px 12px 0 0;
-}
-body.sl-editorial-home #workspace a.sl-screen-link {
-  display:block !important; width: min(100%, 720px) !important;
-  max-width:720px !important; margin:0 auto !important;
-  overflow:hidden !important; box-sizing:border-box;
-  border-radius:0 0 12px 12px !important;
-}
-body.sl-editorial-home #workspace .sl-product-screen {
-  display:block !important; max-width:100% !important; width:100% !important;
-  height:auto !important; object-fit:contain !important;
-}
-body.sl-editorial-home #workspace .sl-screen-caption {
-  width:min(100%,720px); max-width:720px; margin:13px auto 0;
-}
-body.sl-editorial-home #workspace .sl-screen-intro {
-  text-align:center; width:min(100%,740px); margin:0 auto 30px;
-}
-body.sl-editorial-home #workspace .sl-screen-intro h2 {
-  font-size:clamp(29px,3.1vw,45px); line-height:1.15;
-  letter-spacing:-.05em; margin:8px 0 12px; color:#102743;
-}
-body.sl-editorial-home #workspace .sl-screen-intro p { font-size:15px; line-height:1.7; color:#5a7190; }
 @media(max-width:760px){
- body.sl-editorial-home #workspace{padding:46px 0 60px !important;}
- body.sl-editorial-home #workspace>.sl-container{width:calc(100% - 28px)!important;}
- body.sl-editorial-home #workspace .sl-screen-intro{margin-bottom:20px;}
+.sl-editorial-home .sl-opening{padding:22px 0 40px!important}
+.sl-editorial-home .sl-opening>.sl-container{width:calc(100% - 36px);gap:22px}
+.sl-editorial-home .sl-opening h1{font-size:clamp(41px,10vw,57px)!important;letter-spacing:-.055em}
+.sl-editorial-home .sl-opening .sl-intro{font-size:16px!important;line-height:1.65}
+.sl-editorial-home .sl-opening .sl-actions .button{font-size:14px;min-height:48px}
+.sl-editorial-home .sl-people-hero{height:300px;border-radius:15px}
+.sl-editorial-home .sl-people-hero>.sl-photo-primary{height:100%}
+.sl-editorial-home .sl-people-hero figcaption strong{font-size:18px}
+.sl-editorial-home .sl-photo-footnote{flex-direction:column;align-items:flex-start}
+.sl-editorial-home #workspace{padding:52px 0!important}
+.sl-editorial-home #workspace>.sl-workspace-showcase{width:calc(100% - 36px)!important;grid-template-columns:1fr;gap:30px}
+.sl-editorial-home #workspace .sl-screen-intro h2{font-size:clamp(31px,8vw,43px)}
+.sl-editorial-home #workspace .sl-screen-intro p{font-size:15px}
+.sl-showcase-points{margin:19px 0 23px;gap:10px}
+.sl-showcase-points>span{font-size:13px}
+.sl-editorial-home #workspace .sl-workspace-preview{width:100%;max-width:460px}
+.sl-editorial-home .sl-photo-section,.sl-editorial-home .sl-premium-analytics{padding-block:56px}
+.sl-editorial-home .sl-tools,.sl-editorial-home .sl-tour{padding-block:53px}
+.sl-interior .detail-cover h1{font-size:clamp(37px,9vw,50px)}
+.sl-interior .sl-interior-photo-panel.wrap{margin-top:20px;margin-bottom:35px;border-radius:12px}
+}
+@media(max-width:410px){
+.sl-editorial-home #workspace .sl-workspace-preview .sl-product-bar>span{display:none}
+.sl-editorial-home .sl-opening .sl-actions{gap:12px}
+.sl-editorial-home .sl-people-hero{height:265px}
 }
