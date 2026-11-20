@@ -11,7 +11,7 @@ These images are illustrative commercial/business photography. They do **not** p
 | Homepage — consultation | `photo-1758518730151-cf64fddb4f0a` |
 | Homepage — collaboration | `photo-1633114128814-11fac33f707b` |
 | About | `photo-1521737711867-e3b97375f902` |
-| Platform | `photo-1551434678-e076c223a692` |
+| Platform | `photo-1768483538267-fce52de424d5` |
 | Negotiations | `photo-1714079761488-e0c9b9ac4138` |
 | Creditors | `photo-1762427354051-a9bdb181ae3b` |
 | Implementation | `photo-1522071820081-009f0129c71c` |
@@ -21,9 +21,9 @@ These images are illustrative commercial/business photography. They do **not** p
 | Documents & signatures | `photo-1764231467852-b609a742e082` |
 | Funding planning | `photo-1772588627327-1eeddcf73c11` |
 | Intake & enrollment | `photo-1774205884989-37f0f2271503` |
-| Multi-office | `photo-1556761175-4b46a572b786` |
+| Multi-office | `photo-1760346546839-aced24accdff` |
 | Leads | `photo-1758518727929-4506fc031e1c` |
-| Tasks & calendar | `photo-1758873268705-bb756c95f26a` |
+| Tasks & calendar | `photo-1435527173128-983b87201f4d` |
 | Integrations | `photo-1758518726741-6451f7f71348` |
 
 All assets are loaded via `https://images.unsplash.com/<asset-id>` with width, crop and quality parameters. Asset provenance uses the actual image ID rather than invented photographer names. Before purchase or external print use, verify the original image page and license.
@@ -54,3 +54,7 @@ Additional distinct photographic subjects:
 - Client portal — individual user checking a phone beside a laptop: https://unsplash.com/photos/young-woman-using-phone-at-desk-with-laptop-QpuRvyYQ5kA
 - Intake & enrollment — professional working through phone inquiries and paperwork: https://unsplash.com/photos/woman-on-phone-at-messy-desk-with-papers-and-laptop-P0Q1V-7wqrQ
 - Creditor management — organized financial documents and calculator: https://unsplash.com/photos/desk-with-calculator-charts-and-binders-FVwy7PBiSUo
+
+- Multi-office — person using video conference to coordinate remotely: https://unsplash.com/photos/woman-using-a-laptop-with-video-conference-on-screen-a8coCLg6O-U
+- Tasks & calendar — open paper monthly planner: https://unsplash.com/photos/open-monthly-planner-on-wooden-desk-FoKO4DpXamQ
+- Platform — hands using a laptop software interface: https://unsplash.com/photos/person-working-on-a-laptop-at-a-desk-pPpUCaudT5Q
