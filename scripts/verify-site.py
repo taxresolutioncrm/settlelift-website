@@ -77,6 +77,23 @@ for path in pages:
  for photo in re.findall(r'images\.unsplash\.com/(photo-[\w-]+)',path.read_text()):
   photo_sources.setdefault(photo,[]).append(path.relative_to(root).as_posix())
 assert len(photo_sources)>=18, ('Expected unique photos across product pages',len(photo_sources))
+# Context-specific photography is a release invariant, not just a unique URL count.
+expected_page_photos={
+ 'features/client-portal/index.html':'photo-1758611974982-ca55f12b3378',
+ 'features/communications/index.html':'photo-1712159018726-4564d92f3ec2',
+ 'features/creditor-management/index.html':'photo-1762427354051-a9bdb181ae3b',
+ 'features/documents-signatures/index.html':'photo-1764231467852-b609a742e082',
+ 'features/funding-planning/index.html':'photo-1772588627327-1eeddcf73c11',
+ 'features/intake-enrollment/index.html':'photo-1774205884989-37f0f2271503',
+ 'features/negotiations/index.html':'photo-1714079761488-e0c9b9ac4138',
+ 'features/reporting/index.html':'photo-1758691736542-c437fea2c673',
+}
+for page_rel,photo_id in expected_page_photos.items():
+ text=(root/page_rel).read_text()
+ assert photo_id in text,(page_rel,'Incorrect page-specific photo')
+ assert text.count('images.unsplash.com/photo-')==1,(page_rel,'Unexpected repeated page photography')
+ assert 'alt="' in text,(page_rel,'Missing meaningful photo description')
+
 assert all(len(used_by)==1 for used_by in photo_sources.values()), ('Photo reused across unrelated pages',[(p,locations) for p,locations in photo_sources.items() if len(locations)>1])
 assert sum(1 for p in pages if 'sl-interior-photo-panel' in p.read_text())>=15, 'Each major feature page needs a distinct image'
 assert (root/'premium.css').stat().st_size>8500, 'Missing premium responsive layout'
