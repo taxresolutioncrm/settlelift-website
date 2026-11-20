@@ -69,7 +69,7 @@ assert home.count('images.unsplash.com/')>=3, 'Hero and people section need lice
 assert 'sl-premium-analytics' in home and 'sl-analytics-dashboard' in home, 'Premium analytics illustration missing'
 assert 'Fictional values demonstrate reporting design' in home, 'Illustrative graph must never claim production metrics'
 assert 'sl-report-mini' in home and 'sl-report-mini-chart' in home and 'sl-mini-dashboard' not in home, 'Mini reporting card must use the finished chart design'
-assert '<section id="workspace" class="sl-product"><div class="sl-container">' in home, 'Malformed CRM showcase section'
+assert '<section id="workspace" class="sl-product"><div class="sl-container sl-workspace-showcase">' in home, 'Malformed CRM showcase section'
 assert '<section id="workspace" class="sl-product"<' not in home, 'Broken HTML tag must not return'
 assert 'sl-screen-link' in home and 'max-width:460px' in home and 'max-width:460px!important' in (root/'premium.css').read_text(), 'CRM screenshot must remain capped at 460px and framed'
 photo_sources={}
@@ -84,7 +84,7 @@ assert (root.parent/'PHOTO_SOURCES.md').exists(), 'Photographic license/source r
 
 # Closeout regression gates: sitewide CSS cache bust and actual hero scaling.
 assert all('/premium.css?v=20261120-workspace-compact' in p.read_text() for p in pages), 'Premium CSS querystring must be updated sitewide'
-assert '<section id="workspace" class="sl-product"><div class="sl-container">' in home, 'CRM section must be structurally valid'
+assert '<section id="workspace" class="sl-product"><div class="sl-container sl-workspace-showcase">' in home, 'CRM section must be structurally valid'
 assert 'sl-screen-intro' in home and 'sl-showcase-points' in home and 'sl-workspace-preview' in home, 'Side-by-side CRM composition missing'
 assert 'max-width:460px' in home, 'Screenshot must have inline size cap, even if CSS is stale'
 assert 'SettleLift unified composition system' in (root/'premium.css').read_text(), 'Unified design system absent'
