@@ -1,5 +1,5 @@
 # SettleLift marketing photography register
-Updated November 18, 2026.
+Updated November 20, 2026.
 
 All image placements on different feature pages intentionally use a **distinct Unsplash photograph**. Do not reuse one page's photo on another page during future redesigns.
 
@@ -12,14 +12,14 @@ These images are illustrative commercial/business photography. They do **not** p
 | Homepage — collaboration | `photo-1633114128814-11fac33f707b` |
 | About | `photo-1521737711867-e3b97375f902` |
 | Platform | `photo-1551434678-e076c223a692` |
-| Negotiations | `photo-1556761175-b413da4baf72` |
+| Negotiations | `photo-1714079761488-e0c9b9ac4138` |
 | Creditors | `photo-1552664730-d307ca884978` |
 | Implementation | `photo-1522071820081-009f0129c71c` |
-| Reporting | `photo-1542744173-8e7e53415bb0` |
+| Reporting | `photo-1758691736542-c437fea2c673` |
 | Client portal | `photo-1556761175-5973dc0f32e7` |
-| Communications | `photo-1551836022-d5d88e9218df` |
-| Documents & signatures | `photo-1516321318423-f06f85e504b3` |
-| Funding planning | `photo-1551836022-4c4c79ecde51` |
+| Communications | `photo-1712159018726-4564d92f3ec2` |
+| Documents & signatures | `photo-1764231467852-b609a742e082` |
+| Funding planning | `photo-1772588627327-1eeddcf73c11` |
 | Intake & enrollment | `photo-1543269865-cbf427effbad` |
 | Multi-office | `photo-1556761175-4b46a572b786` |
 | Leads | `photo-1758518727929-4506fc031e1c` |
@@ -38,3 +38,14 @@ The newest three replacements were confirmed as free-to-use Unsplash assets in t
 - Lead management — https://unsplash.com/photos/four-business-people-in-a-meeting-discussing-documents-YHC8oV7tcdM
 - Tasks & calendar — https://unsplash.com/photos/colleagues-collaborating-at-a-modern-office-desk-0iTp1WNlMGc
 - Integrations — https://unsplash.com/photos/three-business-people-in-a-meeting-ryxUueL6ffY
+
+## November 20 feature-specific photography replacements
+Five formerly meeting-style images were replaced with visually distinct, workflow-relevant imagery. Source photo pages verified as free-use Unsplash listings, rather than Unsplash+ premium images.
+
+- Communications — customer support professional wearing a headset: https://unsplash.com/photos/a-man-wearing-a-headset-sitting-in-front-of-a-computer-5skDrjF5EMw
+- Documents & signatures — hands signing a document: https://unsplash.com/photos/hands-signing-a-document-on-a-desk-WTgGFO_gGW8
+- Funding planning — financial documents and calculator: https://unsplash.com/photos/person-reviewing-documents-with-calculator-and-laptop-0oZpRxG5Hkk
+- Reporting — analyst presenting charts to colleagues: https://unsplash.com/photos/woman-presents-charts-on-a-screen-to-colleagues-SSEuzLIIYAc
+- Negotiations — client communication with a headset: https://unsplash.com/photos/a-man-wearing-headphones-sitting-in-front-of-a-laptop-computer-LSOIjuBiIuQ
+
+These are illustrative stock photographs, not SettleLift staff, customers, results, product integrations, or CRM screenshots. Preserve the unique image-per-page invariant.
