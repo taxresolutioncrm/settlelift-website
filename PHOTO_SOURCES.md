@@ -58,3 +58,8 @@ Additional distinct photographic subjects:
 - Multi-office — person using video conference to coordinate remotely: https://unsplash.com/photos/woman-using-a-laptop-with-video-conference-on-screen-a8coCLg6O-U
 - Tasks & calendar — open paper monthly planner: https://unsplash.com/photos/open-monthly-planner-on-wooden-desk-FoKO4DpXamQ
 - Platform — hands using a laptop software interface: https://unsplash.com/photos/person-working-on-a-laptop-at-a-desk-pPpUCaudT5Q
+
+## Compact CRM placements — November 21, 2026
+The same *authentic existing illustrative* CRM screenshot asset is intentionally shown at reduced dimensions on the homepage (320px inline limit) and platform (410px CSS limit). Three feature pages (creditor management, negotiations, reporting) show **different crops of that same original sample image** in 420px-wide framed modules. These are detail crops, not independently captured CRM screens; do not label them as different screens or as proof that a feature is live. No fictional CRM page screenshots or fabricated metrics have been introduced.
+
+A genuine distinct-per-feature CRM screenshot rollout requires capturing approved views from the actual authenticated product, using synthetic records only and checking each capture before deployment.
