@@ -87,3 +87,14 @@ Branch: `design/settlelift-sitewide-finish-20261121`.
 The homepage previously presented a six-week reporting chart inside the fourth feature card and then an expanded operations reporting chart immediately below it. The duplicated KPIs (24, 16, 08) and back-to-back charts created redundant page storytelling. Replaced the fourth feature card with a **case-linked task handoff** example and a route to `/workflows/tasks-calendar/`; retained exactly one operational analytics dashboard in the dedicated Reporting section. Removed 24 obsolete mini-dashboard CSS rules rather than layering another override. Updated the homepage CSS cache key and regression checks to reject reintroducing the duplicate. The feature example uses synthetic case data and is not represented as a live task view.
 
 Verified in source: balanced HTML sections; single analytics dashboard; no old mini-report markup or CSS; updated bilingual handoff labels; link to the existing tasks/calendar page; balanced CSS braces; unique homepage IDs. Live viewport rendering and Cloudflare production deployment remain unverified.
+
+## November 21, 2026 — product-first site release
+
+- Added a dedicated homepage section showing four different **illustrative** product workflows (negotiations, documents, tasks, reporting), each linking to a relevant landing page.
+- Added ten separate lightweight SVG workflow concepts, covering intake, negotiations, creditors, funding, client portal, documents, communications, reporting, multi-office access and tasks/calendar. Each contains synthetic example data and the explicit label **not a live CRM capture**.
+- Embedded a matching, differently composed workflow preview on each of ten corresponding marketing pages. Added four previews to the Platform page.
+- Preserved the existing genuine uploaded illustrative CRM image rather than replacing it with an image-generation output and claiming it is real. New SVG concepts must not be described as captured operational screens.
+- Added responsive image presentation, product-led cards, navigation and demo CTA. All 27 HTML pages synchronized to `premium.css?v=20261121-product-proof`.
+- Source checks: 27 one-H1 pages, 27 stylesheet versions, homepage sections balanced, 10 asset wrappers and active sidebar states checked, CSS braces balanced, sample-data disclosures present. Regression gates updated for product view files and screenshot truthfulness.
+
+**Remaining limitation:** Authenticated screenshots of actual functioning SettleLift CRM sections could not be collected from the source repository or unauthenticated website in this work. The illustrations show layout concepts, not verified running features. Cloudflare deployment and real browser visual validation are not confirmed.
