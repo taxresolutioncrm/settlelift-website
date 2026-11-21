@@ -64,14 +64,19 @@ assert all(value in home for value in ['SAMPLE DATA','/login/'])
 assert 'IN DEVELOPMENT' not in home and 'EN DESARROLLO' not in home
 assert 'development preview' not in home
 # Premium redesign invariants (GitHub Actions intentionally not invoked for this release).
-assert all('/premium.css?v=20261121-compact-showcase' in p.read_text() for p in pages), 'Every public page must load refreshed premium design'
+assert all('/premium.css?v=20261121-premium-v3' in p.read_text() for p in pages), 'Every public page must load refreshed premium design'
 assert home.count('images.unsplash.com/')>=3, 'Hero and people section need licensed real photography'
 assert 'sl-premium-analytics' in home and 'sl-analytics-dashboard' in home, 'Premium analytics illustration missing'
+assert 'sl-insights-priorities' in home and 'sl-insights-legend' in home, 'Operational analytics must use the expanded chart and priorities'
+assert 'PEOPLE-CENTERED OPERATIONS' not in home, 'Outdated floating photography badge remains'
+implementation=(root/'implementation/index.html').read_text()
+assert 'sl-implementation-board' in implementation and 'sl-implementation-steps' in implementation, 'Implementation page must show the complete rollout board'
+assert 'sl-page-launch' not in implementation, 'Old tilted implementation mockup must not return'
 assert 'Fictional values demonstrate reporting design' in home, 'Illustrative graph must never claim production metrics'
 assert 'sl-report-mini' in home and 'sl-report-mini-chart' in home and 'sl-mini-dashboard' not in home, 'Mini reporting card must use the finished chart design'
 assert '<section id="workspace" class="sl-product"><div class="sl-container sl-workspace-showcase">' in home, 'Malformed CRM showcase section'
 assert '<section id="workspace" class="sl-product"<' not in home, 'Broken HTML tag must not return'
-assert 'sl-screen-link' in home and 'max-width:320px' in home and 'max-width:320px!important' in (root/'premium.css').read_text(), 'CRM screenshot must remain capped at 460px and framed'
+assert 'sl-screen-link' in home and 'max-width:430px' in home and 'max-width:430px!important' in (root/'premium.css').read_text(), 'CRM preview must stay contained and readable'
 photo_sources={}
 for path in pages:
  for photo in re.findall(r'images\.unsplash\.com/(photo-[\w-]+)',path.read_text()):
@@ -103,7 +108,7 @@ assert (root/'premium.css').stat().st_size>8500, 'Missing premium responsive lay
 assert (root.parent/'PHOTO_SOURCES.md').exists(), 'Photographic license/source record missing'
 
 # Closeout regression gates: sitewide CSS cache bust and actual hero scaling.
-assert all('/premium.css?v=20261121-compact-showcase' in p.read_text() for p in pages), 'Premium CSS querystring must be updated sitewide'
+assert all('/premium.css?v=20261121-premium-v3' in p.read_text() for p in pages), 'Premium CSS querystring must be updated sitewide'
 assert '<section id="workspace" class="sl-product"><div class="sl-container sl-workspace-showcase">' in home, 'CRM section must be structurally valid'
 assert 'sl-screen-intro' in home and 'sl-showcase-points' in home and 'sl-workspace-preview' in home, 'Side-by-side CRM composition missing'
 for rel in ['features/creditor-management/index.html','features/negotiations/index.html','features/reporting/index.html']:
@@ -111,7 +116,7 @@ for rel in ['features/creditor-management/index.html','features/negotiations/ind
  assert 'sl-crm-detail' in sample and 'settlelift-client-workspace.jpg' in sample,(rel,'Compact real CRM visual missing')
 assert '.sl-crm-detail-crop' in (root/'premium.css').read_text(),'Responsive CRM detail component missing'
 
-assert 'max-width:320px' in home, 'Screenshot must have inline size cap, even if CSS is stale'
+assert 'max-width:430px' in home, 'Screenshot must have a readable inline cap if CSS is stale'
 assert 'SettleLift unified composition system' in (root/'premium.css').read_text(), 'Unified design system absent'
 assert 'grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr)' in (root/'premium.css').read_text(), 'Desktop hero must use split composition'
 assert '.sl-editorial-home .sl-opening>.sl-container' in (root/'premium.css').read_text(), 'Page wide hero layout is missing'
