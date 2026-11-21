@@ -158,7 +158,7 @@
 .sl-editorial-home #workspace .sl-workspace-preview .sl-product-bar{width:100%;max-width:none;border-radius:0;margin:0;padding:14px 17px;box-sizing:border-box}
 .sl-editorial-home #workspace .sl-workspace-preview .sl-product-bar b{font-size:12px}
 .sl-editorial-home #workspace .sl-workspace-preview .sl-product-bar>span{font-size:9px}
-.sl-editorial-home #workspace .sl-workspace-preview a.sl-screen-link{display:block!important;width:100%!important;max-width:320px!important;margin:0!important;border:0!important;border-radius:0!important;box-shadow:none!important}
+.sl-editorial-home #workspace .sl-workspace-preview a.sl-screen-link{display:block!important;width:100%!important;max-width:320px!important;margin:0 auto!important;border:0!important;border-radius:0!important;box-shadow:none!important}
 .sl-editorial-home #workspace .sl-workspace-preview img.sl-product-screen{display:block!important;width:100%!important;max-width:100%!important;height:auto!important;aspect-ratio:1363/936;object-fit:contain!important;border:0;border-radius:0;box-shadow:none}
 .sl-editorial-home #workspace .sl-workspace-preview .sl-screen-caption{display:block;width:auto;max-width:none;margin:0;padding:12px 16px 15px;border-top:1px solid #e6eef6;font-size:11px;line-height:1.55;color:#67809a}
 .sl-editorial-home .sl-photo-section{padding-block:85px 100px}
@@ -182,7 +182,7 @@
 .sl-editorial-home .sl-people-hero{height:370px}
 .sl-editorial-home .sl-photo-footnote{margin:0}
 .sl-editorial-home #workspace>.sl-workspace-showcase{width:min(880px,calc(100% - 52px))!important;grid-template-columns:minmax(0,1fr) minmax(0,390px);gap:32px}
-.sl-editorial-home #workspace .sl-workspace-preview{max-width:390px}
+.sl-editorial-home #workspace .sl-workspace-preview{max-width:350px}
 }
 @media(max-width:760px){
 .sl-editorial-home .sl-opening{padding:22px 0 40px!important}
