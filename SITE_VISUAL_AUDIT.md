@@ -53,3 +53,32 @@ Updated `premium.css` with a new desktop hero layout using an explicit wide `132
 Static source checks confirmed 27/27 pages retain one H1, the GTM tag and updated stylesheet reference. No claim is made that a real browser has passed visual QA or that Cloudflare has deployed the commit; these must be checked on production using desktop and mobile viewports.
 
 No authenticated CRM data, production settlement metrics or proprietary branding assets were changed.
+
+## November 21, 2026 — unified design release
+
+Branch: `design/settlelift-sitewide-finish-20261121`.
+
+### Structural/design changes
+- Removed the historical stack of overlapping late-stage `premium.css` overrides and replaced it with a single coordinated design layer, preserving the original component foundations and SettleLift colors.
+- Established shared desktop, tablet, and mobile spacing, header/CTA treatment, product imagery sizing, interior page proportions, editorial cards, reporting visualization and implementation workflow styling.
+- Homepage: added a three-workflow navigation band; enlarged the *contained* sample CRM preview to a readable 500px maximum and linked directly to the source illustrative image for closer inspection. Kept the screenshot beside explanatory copy, not as a full-width page takeover.
+- Interior feature pages: added contextual demo and workflow links, preserved unique photography and improved image crop/height consistency.
+- Existing CRM detail crops are distinct views of one **illustrative** screenshot, **not** separately captured real authenticated screens. No production metrics or claims of completed integrations were introduced.
+- Implementation: preserved the four-step rollout board and normalized its container with other site sections.
+- Reporting: retained grouped activity bars, follow-up priority breakout and explicit fictional-data disclosure.
+- Versioned the consolidated stylesheet across all 27 public HTML pages to prevent stale CSS.
+
+### Source QA performed
+- Checked all 27 HTML pages for a unique H1, nonempty descriptions, canonical tags, stylesheet version, balanced section tags and no duplicate IDs.
+- Confirmed all 27 pages use `premium.css?v=20261121-sitewide-finish`.
+- Checked the homepage screenshot source link, 500px HTML/CSS cap, balanced sections, hero workflow band, analytics labels and sample-data disclosure.
+- Checked the Implementation board replaced the tilted legacy mockup.
+- Checked the official CRM login URL remains `https://app.settlelift.com`.
+- Checked CSS opening/closing braces are balanced and both desktop and mobile breakpoint rules remain.
+- Preserved the original sitemap, marketing paths, SEO metadata, tracking, contact flow, assets and branding.
+
+### Not verified; do not claim complete
+- No full authenticated Cloudflare browser pass, viewport screenshots, external photo rendering/crop QA, computed-style testing, Lighthouse measurements, or Cloudflare deployment confirmation were available in the source-only environment.
+- The feature pages do not yet show unique authenticated CRM screenshots. That requires approved captures from each real CRM feature screen using synthetic data.
+- Real-time behaviors such as contact/demo delivery and product-specific integrations were not independently exercised in this marketing-site-only release.
+- Production readiness remains conditional on desktop (1440px), tablet (1024px) and mobile (375px) visual QA and a successful Cloudflare Pages production deployment.
