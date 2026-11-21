@@ -181,6 +181,31 @@ body.sl-editorial-home #workspace .sl-workspace-preview a.sl-screen-link{display
 body.sl-editorial-home #workspace .sl-workspace-preview img.sl-product-screen{display:block!important;width:100%!important;max-width:100%!important;height:auto!important;aspect-ratio:1363/936;object-fit:contain!important;border:0;border-radius:0;box-shadow:none}
 body.sl-editorial-home #workspace .sl-workspace-preview .sl-screen-caption{display:block;width:auto;max-width:none;margin:0;padding:12px 17px 15px;border-top:1px solid #e6eef8;color:#627e99;font-size:11px;line-height:1.55}
 body.sl-editorial-home #workspace .sl-workspace-preview a.sl-screen-link:hover{opacity:.96}
+/* The fourth feature is a case handoff, not a second reporting dashboard. */
+body.sl-editorial-home .sl-bento-handoff .sl-feature-visual{background:linear-gradient(145deg,#f2f7ff,#e6f2ff);padding:0;overflow:hidden;min-height:300px}
+.sl-handoff-preview{height:100%;min-height:300px;background:#fff;color:#16395a;text-align:left;font-family:Manrope,Arial,sans-serif}
+.sl-handoff-top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:19px 21px;background:linear-gradient(110deg,#12345c,#204c80);color:#fff}
+.sl-handoff-top>div>span{font-size:9px;letter-spacing:.12em;font-weight:800;color:#a8caff;display:block;margin-bottom:6px}
+.sl-handoff-top strong{font-size:16px;display:block;color:#fff;letter-spacing:-.02em}
+.sl-handoff-tag{border:1px solid #8fb9ee80;border-radius:24px;font-size:9px;font-weight:800;letter-spacing:.04em;color:#e8f4ff;padding:7px 10px;white-space:nowrap}
+.sl-handoff-flow{padding:12px 22px 8px}
+.sl-handoff-step{display:grid;grid-template-columns:34px minmax(0,1fr) auto;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid #e6eef8}
+.sl-handoff-step:last-child{border-bottom:0}
+.sl-handoff-step>div{min-width:0}
+.sl-handoff-step strong{font-size:13px;font-weight:800;color:#1a3f61;display:block;line-height:1.32}
+.sl-handoff-step small{display:block;font-size:10px;color:#6986a2;margin-top:5px;line-height:1.35}
+.sl-handoff-dot{display:grid;place-items:center;width:32px;height:32px;border-radius:10px;font-size:11px;font-weight:850;color:#3c6aa5;background:#e9f2ff}
+.sl-handoff-done{background:#d7f6e9;color:#0c8467}
+.sl-handoff-active{background:#dce8ff;color:#155ce5}
+.sl-handoff-next{background:#f0f5fc;color:#738eaa}
+.sl-handoff-status{border:1px solid #dce8f5;border-radius:18px;color:#69829c;font-size:8px;font-weight:850;letter-spacing:.05em;padding:7px 9px;white-space:nowrap}
+.sl-handoff-complete{background:#e4f8f1;color:#147a61;border-color:#c1eedf}
+.sl-handoff-review{background:#e8f0ff;color:#245ed1;border-color:#cfe0ff}
+.sl-handoff-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;border-top:1px solid #e6eef8;background:#f4f8ff;padding:13px 18px}
+.sl-handoff-bottom span{font-size:9px;color:#7188a0}
+.sl-handoff-bottom b{font-size:10px;color:#2364c7}
+@media(max-width:560px){.sl-handoff-top{padding:16px}.sl-handoff-flow{padding:9px 15px 5px}.sl-handoff-step{gap:9px;grid-template-columns:30px minmax(0,1fr) auto}.sl-handoff-status{font-size:7px;padding:6px}.sl-handoff-step strong{font-size:12px}}
+
 /* Section rhythm, distinct imagery, premium feature cards */
 body.sl-editorial-home .sl-photo-section{padding:74px 0 82px!important;background:#fff}
 body.sl-editorial-home .sl-photo-grid{width:min(1120px,calc(100% - 80px));display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:clamp(30px,5vw,73px);align-items:center}
