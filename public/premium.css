@@ -277,21 +277,6 @@ body.sl-editorial-home .sl-closing p{color:#c6d8ee}
 .sl-step-status{font-size:9px;font-weight:850;color:#235db9;background:#e0efff;border-radius:20px;text-align:center;padding:7px 5px}
 .sl-implementation-steps>div:last-child .sl-step-status{background:#d8f7ed;color:#0b8775}
 .sl-implementation-foot{display:flex;justify-content:space-between;gap:10px;margin:7px -25px 0;padding:12px 23px;background:#e6f1ff;color:#6785a8;font-size:9px;letter-spacing:.05em;font-weight:750}
-/* Genuine existing sample screenshot, shown as distinct crops, never claimed as separate screens */
-.sl-interior .sl-crm-detail{width:min(1080px,calc(100% - 70px));margin:40px auto 60px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:clamp(28px,5vw,60px);align-items:center;padding:30px 37px;background:linear-gradient(135deg,#f2f8ff,#eaf3fe);border:1px solid #dbe7f5;border-radius:17px}
-.sl-crm-detail-copy h2{font-size:clamp(30px,3vw,40px);line-height:1.13;color:#142d4b;margin:10px 0 16px}
-.sl-crm-detail-copy p{font-size:15px;line-height:1.75;color:#5a7490;max-width:480px}
-.sl-crm-detail-link{display:inline-flex;font-size:14px;font-weight:800;color:#2364cd;margin-top:20px;text-decoration:none}
-.sl-crm-detail-link:hover{text-decoration:underline}
-.sl-crm-detail-window{width:100%;max-width:420px;min-width:0;background:#fff;border:1px solid #c8d9ec;border-radius:12px;overflow:hidden;box-shadow:0 19px 45px #0f31511d}
-.sl-crm-detail-top{height:39px;display:flex;align-items:center;gap:8px;padding:0 14px;color:#dcecff;background:#12345b;font-size:9px;letter-spacing:.07em;font-weight:800}
-.sl-crm-detail-crop{height:220px;width:100%;position:relative;overflow:hidden;background:#f2f7fb}
-.sl-crm-detail-crop img{position:absolute;display:block;width:590px;max-width:none!important;height:auto;top:0;left:0}
-.sl-crm-detail--offers .sl-crm-detail-crop img{left:-155px;top:-70px}
-.sl-crm-detail--creditors .sl-crm-detail-crop img{left:-55px;top:-30px}
-.sl-crm-detail--overview .sl-crm-detail-crop img{left:-5px;top:-5px}
-.sl-crm-detail-window>small{display:block;padding:10px 14px;font-size:10px;line-height:1.45;color:#6d87a0;border-top:1px solid #e3edf7}
-
 /* Conversion and usability: clear actions and predictable interior rhythm */
 .sl-interior .sl-page-hero-actions{display:flex;align-items:center;flex-wrap:wrap;gap:17px;margin-top:22px}
 .sl-interior .sl-page-hero-actions .button{font-size:14px;min-height:45px;padding:12px 20px}
@@ -343,8 +328,8 @@ body.sl-editorial-home .sl-closing p{color:#c6d8ee}
  body.sl-editorial-home .sl-analytics-grid{width:calc(100% - 48px)}
  .sl-interior .detail-cover.sl-page-hero{grid-template-columns:1fr;max-width:770px;padding:34px 24px 45px}
  .sl-interior .sl-page-visual{max-width:570px}
- .sl-interior .sl-crm-detail{grid-template-columns:1fr;width:calc(100% - 48px);padding:25px;gap:25px}
- .sl-interior .sl-crm-detail-window{max-width:420px}
+ 
+ 
 }
 @media(max-width:560px){
  body.sl-editorial-home .sl-opening{padding:22px 0 43px!important}
@@ -380,11 +365,11 @@ body.sl-editorial-home .sl-closing p{color:#c6d8ee}
  .sl-interior .detail-cover h1{font-size:clamp(36px,9vw,49px)}
  .sl-interior .sl-interior-photo-panel.wrap{width:calc(100% - 34px);height:240px;min-height:240px;margin:20px auto 38px}
  .sl-interior .sl-interior-photo-panel img{height:240px;min-height:240px;max-height:240px}
- .sl-interior .sl-crm-detail{width:calc(100% - 34px);padding:18px}
- .sl-crm-detail-crop{height:170px}
- .sl-crm-detail-crop img{width:510px}
- .sl-crm-detail--offers .sl-crm-detail-crop img{left:-130px;top:-50px}
- .sl-crm-detail--creditors .sl-crm-detail-crop img{left:-48px;top:-25px}
+ 
+ 
+ 
+ 
+ 
  .sl-implementation-steps>div{grid-template-columns:34px 1fr 54px;gap:9px}
  .sl-implementation-inner{padding:18px 17px 0}
 }
