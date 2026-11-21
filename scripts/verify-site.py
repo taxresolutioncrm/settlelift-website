@@ -64,8 +64,7 @@ assert all(value in home for value in ['SAMPLE DATA','/login/'])
 assert 'IN DEVELOPMENT' not in home and 'EN DESARROLLO' not in home
 assert 'development preview' not in home
 # Premium redesign invariants (GitHub Actions intentionally not invoked for this release).
-assert '/premium.css?v=20261121-team-flow' in home, 'Homepage must load unique updated visual release'
-assert all('/premium.css?v=20261121-sitewide-finish' in p.read_text() for p in pages if p != root/'index.html'), 'Interior pages must preserve shared release version'
+assert all('/premium.css?v=20261121-product-proof' in p.read_text() for p in pages), 'All public pages must use product gallery release stylesheet'
 assert home.count('images.unsplash.com/')>=3, 'Hero and people section need licensed real photography'
 assert 'sl-premium-analytics' in home and 'sl-analytics-dashboard' in home, 'Premium analytics illustration missing'
 assert 'sl-insights-priorities' in home and 'sl-insights-legend' in home, 'Operational analytics must use the expanded chart and priorities'
@@ -112,10 +111,36 @@ assert (root/'premium.css').stat().st_size>8500, 'Missing premium responsive lay
 assert (root.parent/'PHOTO_SOURCES.md').exists(), 'Photographic license/source record missing'
 
 # Closeout regression gates: sitewide CSS cache bust and actual hero scaling.
-assert '/premium.css?v=20261121-team-flow' in home, 'Homepage stylesheet cache refresh missing'
+assert '/premium.css?v=20261121-product-proof' in home, 'Homepage stylesheet cache refresh missing'
 assert '<section id="workspace" class="sl-product"><div class="sl-container sl-workspace-showcase">' in home, 'CRM section must be structurally valid'
 assert 'sl-screen-intro' in home and 'sl-showcase-points' in home and 'sl-workspace-preview' in home, 'Side-by-side CRM composition missing'
 assert 'sl-capability-ribbon' in home, 'Workflow capability strip must appear after hero'
+assert 'sl-product-proof' in home and 'sl-proof-grid' in home, 'Product gallery missing from homepage'
+for feature_name in ['negotiations','documents','tasks','reporting']:
+ assert '/assets/product-view-'+feature_name+'.svg' in home, ('Product homepage view missing',feature_name)
+feature_views={
+ 'features/intake-enrollment/index.html':'intake',
+ 'features/negotiations/index.html':'negotiations',
+ 'features/creditor-management/index.html':'creditors',
+ 'features/funding-planning/index.html':'funding',
+ 'features/client-portal/index.html':'portal',
+ 'features/documents-signatures/index.html':'documents',
+ 'features/communications/index.html':'communications',
+ 'features/reporting/index.html':'reporting',
+ 'features/multi-office/index.html':'offices',
+ 'workflows/tasks-calendar/index.html':'tasks'
+}
+for rel,view in feature_views.items():
+ page_text=(root/rel).read_text()
+ assert 'sl-feature-proof' in page_text,(rel,'Feature gallery missing')
+ assert '/assets/product-view-'+view+'.svg' in page_text,(rel,'Incorrect or missing product view')
+ assert 'illustrative' in page_text.lower(),(rel,'Missing illustrative disclosure')
+ svg=(root/'assets'/('product-view-'+view+'.svg')).read_text()
+ assert svg.startswith('<svg ') and svg.strip().endswith('</svg>'),(view,'Invalid SVG wrapper')
+ assert 'NOT A LIVE CRM CAPTURE' in svg,(view,'Product illustration must not be represented as actual screenshot')
+ assert '{e(sub)}' not in svg and 'fill="2"' not in svg,(view,'Unrendered templating in SVG')
+assert 'sl-platform-proof' in (root/'platform/index.html').read_text(), 'Platform comparison gallery missing'
+
 assert 'href="/assets/settlelift-client-workspace.jpg"' in home, 'CRM sample must be inspectable at its full original resolution'
 assert '<section class="sl-capability-ribbon"' in home, 'Feature routing strip missing'
 for name in ['features/intake-enrollment','features/negotiations','features/creditor-management','features/funding-planning','features/client-portal','features/documents-signatures','features/communications','features/reporting','features/multi-office']:
