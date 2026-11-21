@@ -290,6 +290,32 @@ body.sl-editorial-home .sl-closing p{color:#c6d8ee}
 .sl-crm-detail--creditors .sl-crm-detail-crop img{left:-55px;top:-30px}
 .sl-crm-detail--overview .sl-crm-detail-crop img{left:-5px;top:-5px}
 .sl-crm-detail-window>small{display:block;padding:10px 14px;font-size:10px;line-height:1.45;color:#6d87a0;border-top:1px solid #e3edf7}
+
+/* Conversion and usability: clear actions and predictable interior rhythm */
+.sl-interior .sl-page-hero-actions{display:flex;align-items:center;flex-wrap:wrap;gap:17px;margin-top:22px}
+.sl-interior .sl-page-hero-actions .button{font-size:14px;min-height:45px;padding:12px 20px}
+.sl-hero-secondary{font-size:13px;font-weight:800;color:#2464c6!important;text-decoration:none;border-bottom:1px solid #9cbcf0;padding-bottom:3px}
+.sl-hero-secondary:hover{color:#154fb0!important;border-color:#2464c6}
+.sl-interior .sl-page-copy .detail-development{max-width:560px}
+.sl-interior .detail-grid>.detail-body{min-width:0}
+.sl-interior .detail-body h2{font-size:clamp(28px,3vw,43px);line-height:1.17}
+.sl-interior .detail-body p,.sl-interior .detail-body li{font-size:16px;line-height:1.8}
+.sl-interior .detail-rail a{transition:background .15s ease,color .15s ease}
+.sl-interior .detail-rail a:hover,.sl-interior .detail-rail a:focus-visible{background:#dceafd;color:#124eab}
+.sl-interior .workflow-evidence{width:min(1140px,calc(100% - 70px));margin:0 auto 35px;padding:27px 30px}
+.sl-interior .evidence-heading{gap:16px}
+.sl-interior .evidence-facts{gap:16px}
+.sl-interior .evidence-facts>div{min-width:0}
+.sl-interior .conversation-band{box-shadow:0 22px 55px #1035541a}
+.sl-interior .sl-page-visual-brand .sl-page-art{background:radial-gradient(circle at 78% 18%,#e1eeff,#f6faff 65%)}
+.sl-interior .sl-page-visual-security .sl-page-art{background:linear-gradient(135deg,#eef6ff,#fff)}
+.sl-interior .sl-page-visual-office .sl-page-art,.sl-interior .sl-page-visual-offices .sl-page-art{background:linear-gradient(150deg,#f5f9ff,#e9f3ff)}
+.sl-interior .sl-page-visual-screenshot .sl-page-art{background:#f2f7fd}
+/* Visual previews are illustrative: images are never stretched, skewed or clipped outside their frames */
+.sl-interior .sl-page-art img{max-width:100%}
+.sl-interior .sl-page-visual:has(.sl-page-screen){overflow:hidden}
+.sl-interior .sl-page-visual:has(.sl-page-screen) .sl-page-art{overflow:hidden}
+
 /* Responsive layouts */
 @media(max-width:1100px){
  body.sl-editorial-home .sl-opening>.sl-container{width:min(950px,calc(100% - 54px));column-gap:34px}
