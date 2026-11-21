@@ -82,3 +82,8 @@ Branch: `design/settlelift-sitewide-finish-20261121`.
 - The feature pages do not yet show unique authenticated CRM screenshots. That requires approved captures from each real CRM feature screen using synthetic data.
 - Real-time behaviors such as contact/demo delivery and product-specific integrations were not independently exercised in this marketing-site-only release.
 - Production readiness remains conditional on desktop (1440px), tablet (1024px) and mobile (375px) visual QA and a successful Cloudflare Pages production deployment.
+
+## November 21 follow-up — eliminate redundant analytics showcase
+The homepage previously presented a six-week reporting chart inside the fourth feature card and then an expanded operations reporting chart immediately below it. The duplicated KPIs (24, 16, 08) and back-to-back charts created redundant page storytelling. Replaced the fourth feature card with a **case-linked task handoff** example and a route to `/workflows/tasks-calendar/`; retained exactly one operational analytics dashboard in the dedicated Reporting section. Removed 24 obsolete mini-dashboard CSS rules rather than layering another override. Updated the homepage CSS cache key and regression checks to reject reintroducing the duplicate. The feature example uses synthetic case data and is not represented as a live task view.
+
+Verified in source: balanced HTML sections; single analytics dashboard; no old mini-report markup or CSS; updated bilingual handoff labels; link to the existing tasks/calendar page; balanced CSS braces; unique homepage IDs. Live viewport rendering and Cloudflare production deployment remain unverified.
