@@ -218,3 +218,21 @@
 .sl-interior .sl-page-visual-screenshot .sl-page-screen{max-width:410px;width:100%;margin:0 auto;min-height:0;overflow:hidden;border-radius:10px}
 .sl-interior .sl-page-visual-screenshot .sl-page-screen img{display:block;width:100%;max-width:410px;height:auto;object-fit:contain}
 @media(max-width:760px){.sl-interior .sl-page-visual-screenshot{max-width:360px}.sl-interior .sl-page-visual-screenshot .sl-page-screen{max-width:320px}}
+
+/* Reusable, restrained real CRM detail treatment for feature pages. */
+.sl-interior .sl-crm-detail{width:min(1120px,calc(100% - 50px));margin:46px auto 58px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:clamp(28px,5vw,72px);align-items:center;padding:35px 40px;border-radius:18px;background:#f1f6fd;border:1px solid #dce8f6}
+.sl-crm-detail-copy{min-width:0}
+.sl-crm-detail-copy h2{font-size:clamp(28px,3vw,42px);letter-spacing:-.05em;line-height:1.15;color:#102844;margin:13px 0 17px}
+.sl-crm-detail-copy p{font-size:16px;line-height:1.7;color:#576f88;max-width:470px}
+.sl-crm-detail-link{display:inline-flex;color:#1456c6;font-weight:800;font-size:14px;margin-top:23px;text-decoration:none}
+.sl-crm-detail-link:hover{text-decoration:underline}
+.sl-crm-detail-window{width:100%;max-width:420px;min-width:0;overflow:hidden;border:1px solid #cbd9e9;background:#fff;border-radius:13px;box-shadow:0 18px 42px #102a481b}
+.sl-crm-detail-top{height:38px;display:flex;align-items:center;gap:8px;padding:0 14px;background:#142a48;color:#d9e8fa;font-size:9px;font-weight:800;letter-spacing:.075em}
+.sl-crm-detail-crop{height:218px;width:100%;position:relative;overflow:hidden;background:#f6f9fd}
+.sl-crm-detail-crop img{position:absolute;display:block;width:590px;max-width:none!important;height:auto;top:0;left:0;filter:none}
+.sl-crm-detail--offers .sl-crm-detail-crop img{left:-155px;top:-70px}
+.sl-crm-detail--creditors .sl-crm-detail-crop img{left:-55px;top:-30px}
+.sl-crm-detail--overview .sl-crm-detail-crop img{left:-5px;top:-5px}
+.sl-crm-detail-window>small{display:block;padding:11px 14px;color:#69809b;font-size:10px;border-top:1px solid #e5edf7;line-height:1.4}
+@media(max-width:800px){.sl-interior .sl-crm-detail{grid-template-columns:1fr;width:calc(100% - 36px);padding:25px;gap:25px;margin:33px auto 42px}.sl-crm-detail-window{max-width:420px}.sl-crm-detail-crop{height:215px}}
+@media(max-width:420px){.sl-interior .sl-crm-detail{padding:19px}.sl-crm-detail-crop{height:175px}.sl-crm-detail-crop img{width:510px}.sl-crm-detail--offers .sl-crm-detail-crop img{left:-130px;top:-50px}.sl-crm-detail--creditors .sl-crm-detail-crop img{left:-48px;top:-25px}}
