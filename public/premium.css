@@ -392,6 +392,19 @@ body.sl-editorial-home .sl-closing p{color:#c6d8ee}
  .sl-editorial-home .button,.sl-interior .button,.sl-capability-item,.sl-editorial-home .sl-bento-card{transition:none}
 }
 
+/* Homepage deliberately shows only two CRM visuals: client workspace plus negotiations preview. */
+.sl-product-proof.sl-proof-single{padding:66px 0 71px}
+.sl-proof-single>.sl-container{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,490px);gap:24px 58px;align-items:center;max-width:1120px}
+.sl-proof-single .sl-proof-heading{display:block;margin:0}
+.sl-proof-single .sl-proof-heading>div+div{margin-top:20px}
+.sl-proof-single .sl-proof-heading h2{font-size:clamp(34px,3.4vw,49px)}
+.sl-proof-single .sl-proof-grid{display:block;width:100%;max-width:490px}
+.sl-proof-single .sl-proof-bottom{grid-column:1/-1;border-top:1px solid #dbe8f5;padding-top:19px;margin-top:5px}
+.sl-proof-single .sl-proof-card{width:100%}
+.sl-proof-single .sl-proof-media img{aspect-ratio:1080/750}
+@media(max-width:850px){.sl-proof-single>.sl-container{grid-template-columns:1fr;gap:25px}.sl-proof-single .sl-proof-heading{max-width:660px}.sl-proof-single .sl-proof-grid{max-width:560px}}
+@media(max-width:620px){.sl-product-proof.sl-proof-single{padding:52px 0 58px}.sl-proof-single .sl-proof-bottom{gap:16px}}
+
 /* Product-first marketing: genuine source screenshot plus clearly labeled interface concepts. */
 .sl-product-proof{padding:82px 0 88px;background:linear-gradient(160deg,#fff 15%,#eef6ff 100%);border-block:1px solid #dce9f8}
 .sl-product-proof .sl-container{width:min(1180px,calc(100% - 68px));margin:auto}
