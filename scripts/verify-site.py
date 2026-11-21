@@ -157,8 +157,9 @@ for name in ['features/intake-enrollment','features/negotiations','features/cred
 
 for rel in ['features/creditor-management/index.html','features/negotiations/index.html','features/reporting/index.html']:
  sample=(root/rel).read_text()
- assert 'sl-crm-detail' in sample and 'settlelift-client-workspace.jpg' in sample,(rel,'Compact real CRM visual missing')
-assert '.sl-crm-detail-crop' in (root/'premium.css').read_text(),'Responsive CRM detail component missing'
+ assert 'sl-crm-detail' not in sample,(rel,'Repeated client overview crop must not return')
+ assert 'sl-feature-proof' in sample,(rel,'Distinct feature view missing')
+assert '.sl-crm-detail-crop' not in (root/'premium.css').read_text(),'Orphaned screenshot crop styling must not return'
 
 assert 'max-width:500px' in home, 'Screenshot must have a readable inline cap if CSS is stale'
 assert 'SETTLELIFT UNIFIED RELEASE' in (root/'premium.css').read_text(), 'Consolidated design system absent'
