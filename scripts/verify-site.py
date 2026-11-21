@@ -142,10 +142,11 @@ for rel,view in feature_views.items():
  assert 'NOT A LIVE CRM CAPTURE' in svg,(view,'Product illustration must not be represented as actual screenshot')
  assert '{e(sub)}' not in svg and 'fill="2"' not in svg,(view,'Unrendered templating in SVG')
 platform_html=(root/'platform/index.html').read_text()
-assert 'sl-platform-feature' in platform_html, 'Platform single-view walkthrough missing'
+assert 'sl-platform-workflow-nav' in platform_html, 'Platform workflow navigation missing'
 assert 'sl-platform-proof-grid' not in platform_html, 'Four-up thumbnail gallery must not return'
-assert platform_html.count('src="/assets/settlelift-client-workspace.jpg"') == 1, 'One readable illustrative workspace image is required'
-assert '.sl-platform-feature-visual' in (root/'premium.css').read_text(), 'Single preview styling missing'
+assert platform_html.count('src="/assets/settlelift-client-workspace.jpg"') == 1, 'Platform must not duplicate the client screenshot'
+assert '<nav class="sl-platform-feature-links"' in platform_html, 'Distinct feature links must replace repeated screenshots'
+assert '.sl-platform-feature-links' in (root/'premium.css').read_text(), 'Workflow navigation styling missing'
 
 assert 'href="/assets/settlelift-client-workspace.jpg"' in home, 'CRM sample must be inspectable at its full original resolution'
 assert '<section class="sl-capability-ribbon"' in home, 'Feature routing strip missing'
