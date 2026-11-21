@@ -64,7 +64,8 @@ assert all(value in home for value in ['SAMPLE DATA','/login/'])
 assert 'IN DEVELOPMENT' not in home and 'EN DESARROLLO' not in home
 assert 'development preview' not in home
 # Premium redesign invariants (GitHub Actions intentionally not invoked for this release).
-assert all('/premium.css?v=20261121-sitewide-finish' in p.read_text() for p in pages), 'Every public page must load refreshed premium design'
+assert '/premium.css?v=20261121-team-flow' in home, 'Homepage must load unique updated visual release'
+assert all('/premium.css?v=20261121-sitewide-finish' in p.read_text() for p in pages if p != root/'index.html'), 'Interior pages must preserve shared release version'
 assert home.count('images.unsplash.com/')>=3, 'Hero and people section need licensed real photography'
 assert 'sl-premium-analytics' in home and 'sl-analytics-dashboard' in home, 'Premium analytics illustration missing'
 assert 'sl-insights-priorities' in home and 'sl-insights-legend' in home, 'Operational analytics must use the expanded chart and priorities'
@@ -73,7 +74,10 @@ implementation=(root/'implementation/index.html').read_text()
 assert 'sl-implementation-board' in implementation and 'sl-implementation-steps' in implementation, 'Implementation page must show the complete rollout board'
 assert 'sl-page-launch' not in implementation, 'Old tilted implementation mockup must not return'
 assert 'Fictional values demonstrate reporting design' in home, 'Illustrative graph must never claim production metrics'
-assert 'sl-report-mini' in home and 'sl-report-mini-chart' in home and 'sl-mini-dashboard' not in home, 'Mini reporting card must use the finished chart design'
+assert 'sl-bento-handoff' in home and 'sl-handoff-preview' in home, 'Team workflow card missing'
+assert 'sl-report-mini' not in home, 'Duplicate reporting mini dashboard must not return'
+assert home.count('sl-analytics-dashboard') == 1, 'Only one reporting dashboard belongs on homepage'
+assert 'href="/workflows/tasks-calendar/" class="sl-bento-card sl-bento-handoff"' in home, 'Team workflow card must open the tasks and calendar page'
 assert '<section id="workspace" class="sl-product"><div class="sl-container sl-workspace-showcase">' in home, 'Malformed CRM showcase section'
 assert '<section id="workspace" class="sl-product"<' not in home, 'Broken HTML tag must not return'
 assert 'sl-screen-link' in home and 'max-width:500px' in home and 'max-width:500px!important' in (root/'premium.css').read_text(), 'CRM preview must stay contained and readable'
@@ -108,7 +112,7 @@ assert (root/'premium.css').stat().st_size>8500, 'Missing premium responsive lay
 assert (root.parent/'PHOTO_SOURCES.md').exists(), 'Photographic license/source record missing'
 
 # Closeout regression gates: sitewide CSS cache bust and actual hero scaling.
-assert all('/premium.css?v=20261121-sitewide-finish' in p.read_text() for p in pages), 'Premium CSS querystring must be updated sitewide'
+assert '/premium.css?v=20261121-team-flow' in home, 'Homepage stylesheet cache refresh missing'
 assert '<section id="workspace" class="sl-product"><div class="sl-container sl-workspace-showcase">' in home, 'CRM section must be structurally valid'
 assert 'sl-screen-intro' in home and 'sl-showcase-points' in home and 'sl-workspace-preview' in home, 'Side-by-side CRM composition missing'
 assert 'sl-capability-ribbon' in home, 'Workflow capability strip must appear after hero'
