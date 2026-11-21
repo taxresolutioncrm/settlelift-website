@@ -116,8 +116,9 @@ assert '<section id="workspace" class="sl-product"><div class="sl-container sl-w
 assert 'sl-screen-intro' in home and 'sl-showcase-points' in home and 'sl-workspace-preview' in home, 'Side-by-side CRM composition missing'
 assert 'sl-capability-ribbon' in home, 'Workflow capability strip must appear after hero'
 assert 'sl-product-proof' in home and 'sl-proof-grid' in home, 'Product gallery missing from homepage'
-for feature_name in ['negotiations','documents','tasks','reporting']:
- assert '/assets/product-view-'+feature_name+'.svg' in home, ('Product homepage view missing',feature_name)
+assert home.count('/assets/product-view-') == 1, 'Homepage must show at most one feature view plus the client workspace image'
+assert '/assets/product-view-negotiations.svg' in home, 'Negotiation preview missing from homepage'
+assert '<img class="sl-product-screen"' in home, 'Existing client workspace preview missing'
 feature_views={
  'features/intake-enrollment/index.html':'intake',
  'features/negotiations/index.html':'negotiations',
