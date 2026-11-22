@@ -64,8 +64,8 @@ assert all(value in home for value in ['SAMPLE DATA','/login/'])
 assert 'IN DEVELOPMENT' not in home and 'EN DESARROLLO' not in home
 assert 'development preview' not in home
 # Premium redesign invariants (GitHub Actions intentionally not invoked for this release).
-assert '/premium.css?v=20261121-platform-clean' in (root/'platform/index.html').read_text(), 'Platform stylesheet cache key missing'
-assert all('/premium.css?v=20261121-product-proof' in p.read_text() for p in pages if p!=root/'platform/index.html'), 'Other public pages must retain shared CSS reference'
+assert '/premium.css?v=20261121-preview-clean' in (root/'platform/index.html').read_text(), 'Platform stylesheet cache key missing'
+assert all('/premium.css?v=20261121-preview-clean' in p.read_text() for p in pages if p!=root/'platform/index.html'), 'Other public pages must retain shared CSS reference'
 assert home.count('images.unsplash.com/')>=3, 'Hero and people section need licensed real photography'
 assert 'sl-premium-analytics' in home and 'sl-analytics-dashboard' in home, 'Premium analytics illustration missing'
 assert 'sl-insights-priorities' in home and 'sl-insights-legend' in home, 'Operational analytics must use the expanded chart and priorities'
@@ -112,11 +112,12 @@ assert (root/'premium.css').stat().st_size>8500, 'Missing premium responsive lay
 assert (root.parent/'PHOTO_SOURCES.md').exists(), 'Photographic license/source record missing'
 
 # Closeout regression gates: sitewide CSS cache bust and actual hero scaling.
-assert '/premium.css?v=20261121-product-proof' in home, 'Homepage stylesheet cache refresh missing'
+assert '/premium.css?v=20261121-preview-clean' in home, 'Homepage stylesheet cache refresh missing'
 assert '<section id="workspace" class="sl-product"><div class="sl-container sl-workspace-showcase">' in home, 'CRM section must be structurally valid'
 assert 'sl-screen-intro' in home and 'sl-showcase-points' in home and 'sl-workspace-preview' in home, 'Side-by-side CRM composition missing'
 assert 'sl-capability-ribbon' in home, 'Workflow capability strip must appear after hero'
 assert 'sl-product-proof' in home and 'sl-proof-grid' in home, 'Product gallery missing from homepage'
+assert 'product-view-negotiations.svg?v=20261121-preview-clean' in home, 'Homepage product artwork cache version missing'
 assert home.count('/assets/product-view-') == 1, 'Homepage must show at most one feature view plus the client workspace image'
 assert '/assets/product-view-negotiations.svg' in home, 'Negotiation preview missing from homepage'
 assert '<img class="sl-product-screen"' in home, 'Existing client workspace preview missing'
@@ -135,6 +136,7 @@ feature_views={
 for rel,view in feature_views.items():
  page_text=(root/rel).read_text()
  assert 'sl-feature-proof' in page_text,(rel,'Feature gallery missing')
+ assert 'product-view-'+view+'.svg?v=20261121-preview-clean' in page_text,(rel,'Product artwork cache version missing')
  assert '/assets/product-view-'+view+'.svg' in page_text,(rel,'Incorrect or missing product view')
  assert 'illustrative' in page_text.lower(),(rel,'Missing illustrative disclosure')
  svg=(root/'assets'/('product-view-'+view+'.svg')).read_text()
