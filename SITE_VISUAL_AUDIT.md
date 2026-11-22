@@ -101,3 +101,17 @@ Verified in source: balanced HTML sections; single analytics dashboard; no old m
 
 ## Homepage visual density correction — November 21
 Per product owner feedback, the homepage is restricted to two CRM visuals at most: client summary plus one negotiations concept. The four-item showcase was removed. The separate documents, tasks, reporting, creditor, funding, portal, communications, intake and office visual previews remain distributed across dedicated pages, with their illustrative nature disclosed. Regression checks enforce the homepage limit.
+
+## November 21/22, 2026 — eliminate repeated preview disclaimer strips
+
+The two footer ribbons identified in the customer screenshot were physically removed, not merely hidden via CSS:
+- Removed "ILLUSTRATIVE PRODUCT VIEW · SYNTHETIC DATA · NOT A LIVE CRM CAPTURE" and its colored footer from **all 10** marketing SVG product illustrations.
+- Cropped each SVG canvas from 1080×750 to 1080×710 to eliminate the empty area.
+- Removed the "ILLUSTRATIVE PRODUCT CONCEPT · SAMPLE DATA · VIEW FULL SIZE" caption beneath **all 10** feature-page product images.
+- Removed "ILLUSTRATIVE WORKSPACE / SAMPLE DATA" from the repeated hero-art footer captions on **24** marketing pages.
+- Deleted the unused footer styling; updated CSS aspect ratios and displayed image dimensions.
+- Updated all 27 pages to use `/premium.css?v=20261121-preview-clean` and versioned product illustration URLs, avoiding old CDN/browser cache appearances.
+- Retained accessible alt text and nearby explanatory text identifying the graphics as illustrative; **do not present an artwork concept as an authenticated CRM screenshot**.
+- Checked all 27 HTML pages for absence of banned labels, stylesheet version and balanced sections; checked all 10 product SVGs for removed footer and 1080×710 dimensions; checked other public CSS/JS for the repeated wording.
+
+Release is source-verified. Live Cloudflare build and page render must be confirmed separately.
