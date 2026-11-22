@@ -115,3 +115,13 @@ Review triggered by screenshots showing an unwanted four-thumbnail gallery on /p
 - Verified 27 public HTML pages for one H1, consistent responsive stylesheet references (Platform version isolated), canonical/description metadata, balanced section tags and no duplicate IDs. Verified local image references, alt attributes, and distinct photography across the inspected marketing pages. Verified CSS brace balance and the no-repeated-screenshot rules.
 
 **RELEASE BLOCKER:** Full live browser visual QA at desktop, tablet, and mobile breakpoints has not been performed, and the marketing SVG feature illustrations are generic concepts rather than captured authenticated CRM screens. The current branch is not signed off for a production deployment. Do not merge or publish it until a real rendered-page check is possible and the product-preview claims and imagery are approved.
+
+## Authenticated CRM screenshot replacement tooling — November 21
+
+The CRM repository branch `tooling/real-crm-screen-capture-20261121` now contains a Playwright capture utility that runs against **the real CRM UI**, requires interactive sign-in and a `Demo` tenant, and captures dashboard, clients, leads/intake, negotiations, creditors, communications, documents, reporting, office settings, tasks, appointments, a synthetic demo client file and its funding tab. Captures and authentication state are never automatically published.
+
+This website branch adds `scripts/install-real-crm-screens.mjs` to accept the resulting screenshots, validate PNG magic bytes, sensible pixel dimensions, unique SHA-256 hashes and matching DEMO capture manifest, and install actual screenshots into the existing website page placements. Screenshot labels/alt text are updated to reflect **captured UI with synthetic data** rather than generated concepts.
+
+The website's existing audit script now supports `--require-real-crm` as a hard release gate: it checks provenance and rejects any remaining `product-view-*.svg` on public marketing pages. The client portal is not yet an independently capturable page in the known CRM React app and must not be represented as live until demonstrated. Consequently the strict gate is expected to fail until real capture coverage is complete.
+
+**Status:** tooling source syntax verified; live authenticated capture has NOT been executed from this environment. No production deployment authorized by this source-only work. Do not label mockups as screenshots or merge a release that fails `--require-real-crm`.
