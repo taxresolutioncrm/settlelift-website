@@ -139,11 +139,19 @@ for rel,view in feature_views.items():
  assert 'illustrative' in page_text.lower(),(rel,'Missing illustrative disclosure')
  svg=(root/'assets'/('product-view-'+view+'.svg')).read_text()
  assert svg.startswith('<svg ') and svg.strip().endswith('</svg>'),(view,'Invalid SVG wrapper')
- assert 'NOT A LIVE CRM CAPTURE' in svg,(view,'Product illustration must not be represented as actual screenshot')
+ assert 'NOT A LIVE CRM CAPTURE' not in svg,(view,'Obtrusive bottom disclaimer banner returned')
+ assert 'y="715"' not in svg and 'viewBox="0 0 1080 710"' in svg,(view,'Product artwork footer not removed')
+ assert 'not a live CRM capture' in page_text.lower(),(rel,'Keep truthful image context in accessible alt text, not footer')
  assert '{e(sub)}' not in svg and 'fill="2"' not in svg,(view,'Unrendered templating in SVG')
 platform=(root/'platform/index.html').read_text()
 assert 'sl-platform-links-nav' in platform and 'sl-platform-links-intro' in platform, 'New Platform section missing'
 assert 'sl-platform-proof-grid' not in platform, 'Unwanted four-image Platform grid must not return'
+for page in pages:
+ contents=page.read_text()
+ assert 'ILLUSTRATIVE PRODUCT CONCEPT · SAMPLE DATA · VIEW FULL SIZE' not in contents,(page,'Old preview footer text returned')
+ assert 'ILLUSTRATIVE WORKSPACE / SAMPLE DATA' not in contents,(page,'Old repeated illustration strip returned')
+ assert 'CONCEPTO ILUSTRATIVO · DATOS FICTICIOS · VER COMPLETO' not in contents,(page,'Old Spanish preview footer returned')
+assert '.sl-feature-proof-visual>span' not in (root/'premium.css').read_text(),'Orphaned footer style returned'
 assert platform.count('src="/assets/settlelift-client-workspace.jpg"') == 1, 'Use existing Platform hero screenshot only'
 assert all(('/'+route+'/') in platform for route in ['features/intake-enrollment','features/negotiations','features/documents-signatures','workflows/tasks-calendar']), 'Platform feature destinations missing'
 assert 'These are illustrative sample views, not live CRM screenshots.' not in platform, 'Repetitive Platform gallery copy returned'
