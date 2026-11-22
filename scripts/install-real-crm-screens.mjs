@@ -22,27 +22,36 @@ const assetDir = join(publicDir,'assets','crm-real');
 const mappings = [
   {id:'client-file',file:'settlelift-client-file-actual.png',
     pages:['index.html','platform/index.html']},
+  {id:'intake',file:'settlelift-intake-actual.png',
+    pages:['features/intake-enrollment/index.html']},
   {id:'negotiations',file:'settlelift-negotiations-actual.png',
     pages:['index.html','features/negotiations/index.html']},
   {id:'creditors',file:'settlelift-creditors-actual.png',
     pages:['features/creditor-management/index.html']},
   {id:'communications',file:'settlelift-communications-actual.png',
     pages:['features/communications/index.html']},
+  {id:'funding',file:'settlelift-funding-actual.png',
+    pages:['features/funding-planning/index.html']},
   {id:'documents',file:'settlelift-documents-actual.png',
     pages:['features/documents-signatures/index.html']},
   {id:'tasks',file:'settlelift-tasks-actual.png',
     pages:['workflows/tasks-calendar/index.html']},
   {id:'reporting',file:'settlelift-reporting-actual.png',
-    pages:['features/reporting/index.html']}
+    pages:['features/reporting/index.html']},
+  {id:'offices',file:'settlelift-offices-actual.png',
+    pages:['features/multi-office/index.html']}
 ];
 const oldNames={
  'client-file':'settlelift-client-workspace.jpg',
+ 'intake':'product-view-intake.svg',
  'negotiations':'product-view-negotiations.svg',
  'creditors':'product-view-creditors.svg',
  'communications':'product-view-communications.svg',
  'documents':'product-view-documents.svg',
+ 'funding':'product-view-funding.svg',
  'tasks':'product-view-tasks.svg',
- 'reporting':'product-view-reporting.svg'
+ 'reporting':'product-view-reporting.svg',
+ 'offices':'product-view-offices.svg'
 };
 const manifest=JSON.parse(await readFile(join(sourceDir,'capture-manifest.json'),'utf8'));
 if (manifest.syntheticDataOnly!==true || !/^demo\b/i.test(manifest.tenantLabel||'') ||
