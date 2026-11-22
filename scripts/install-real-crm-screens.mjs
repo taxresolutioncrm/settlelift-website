@@ -93,6 +93,17 @@ for(const item of mappings){
        'Actual SettleLift interface captures using synthetic demo records.');
     revised=revised.replaceAll('not a live CRM capture','captured from the DEMO CRM');
     revised=revised.replaceAll('not a capture of the running CRM','captured from the DEMO CRM');
+    revised=revised.replaceAll('PRODUCT WORKFLOW PREVIEW','ACTUAL CRM SCREEN');
+    revised=revised.replaceAll('VISTA ILUSTRATIVA','CAPTURA REAL DEL CRM');
+    revised=revised.replaceAll('ILLUSTRATIVE PRODUCT CONCEPT','ACTUAL CRM SCREENSHOT');
+    revised=revised.replaceAll('CONCEPTO ILUSTRATIVO','CAPTURA REAL DEL CRM');
+    revised=revised.replaceAll('not captures of the running CRM','captured from the DEMO CRM');
+    revised=revised.replaceAll('Illustrative interface · Synthetic data','Actual CRM screen · Synthetic demo data');
+    revised=revised.replace(/(<section class="wrap sl-feature-proof" aria-label=")([^"]+) illustrative product view"/g,'$1$2 actual CRM view"');
+    revised=revised.replace(/<img\b[^>]*>/g,tag=>tag.includes(next)
+      ? tag.replace(/alt="[^"]*"/,
+        'alt="Actual SettleLift '+item.id.replaceAll('-',' ')+' CRM screen from the DEMO workspace with synthetic records"')
+      : tag);
     edits.set(path,revised);
   }
 }
