@@ -401,7 +401,7 @@ body.sl-editorial-home .sl-closing p{color:#c6d8ee}
 .sl-proof-single .sl-proof-grid{display:block;width:100%;max-width:490px}
 .sl-proof-single .sl-proof-bottom{grid-column:1/-1;border-top:1px solid #dbe8f5;padding-top:19px;margin-top:5px}
 .sl-proof-single .sl-proof-card{width:100%}
-.sl-proof-single .sl-proof-media img{aspect-ratio:1080/750}
+.sl-proof-single .sl-proof-media img{aspect-ratio:1080/710}
 @media(max-width:850px){.sl-proof-single>.sl-container{grid-template-columns:1fr;gap:25px}.sl-proof-single .sl-proof-heading{max-width:660px}.sl-proof-single .sl-proof-grid{max-width:560px}}
 @media(max-width:620px){.sl-product-proof.sl-proof-single{padding:52px 0 58px}.sl-proof-single .sl-proof-bottom{gap:16px}}
 
@@ -416,7 +416,7 @@ body.sl-editorial-home .sl-closing p{color:#c6d8ee}
 .sl-proof-card{display:block;background:#fff;overflow:hidden;border:1px solid #d4e2f2;border-radius:17px;box-shadow:0 17px 43px #15395b17;text-decoration:none!important;transition:transform .2s ease,box-shadow .2s ease}
 .sl-proof-card:hover{transform:translateY(-3px);box-shadow:0 24px 54px #133a652b}
 .sl-proof-media{padding:14px 14px 0;background:linear-gradient(140deg,#eaf3ff,#f8fbff);border-bottom:1px solid #e3edf9}
-.sl-proof-media img{display:block;width:100%;aspect-ratio:1080/750;height:auto;object-fit:contain;border-radius:10px 10px 0 0;box-shadow:0 5px 14px #12375b0b}
+.sl-proof-media img{display:block;width:100%;aspect-ratio:1080/710;height:auto;object-fit:contain;border-radius:10px 10px 0 0;box-shadow:0 5px 14px #12375b0b}
 .sl-proof-card-copy{padding:19px 22px 23px;color:#17365a}
 .sl-proof-card-copy>span{font-size:9px;letter-spacing:.11em;color:#5b83b3;font-weight:850}
 .sl-proof-card-copy h3{font-size:23px;color:#112f50;line-height:1.2;margin:8px 0}
@@ -430,8 +430,8 @@ body.sl-editorial-home .sl-closing p{color:#c6d8ee}
 .sl-feature-proof-copy p,.sl-platform-proof-head p{font-size:15px;line-height:1.75;color:#5f7997;max-width:480px}
 .sl-feature-proof-copy .button{margin-top:20px}
 .sl-feature-proof-visual{display:block;text-decoration:none!important;border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 22px 55px #0e2b4c1f;border:1px solid #d2e3f5}
-.sl-feature-proof-visual img{display:block;width:100%;height:auto;aspect-ratio:1080/750;object-fit:contain}
-.sl-feature-proof-visual>span{display:block;padding:11px 14px;background:#f5f9ff;border-top:1px solid #e1ebf7;color:#6d88a5;font-size:10px;letter-spacing:.02em;text-align:center;font-weight:800}
+.sl-feature-proof-visual img{display:block;width:100%;height:auto;aspect-ratio:1080/710;object-fit:contain}
+
 
 /* Platform: one purposeful workflow navigator, never a four-image thumbnail gallery. */
 .sl-interior .sl-platform-links{width:min(1120px,calc(100% - 68px));max-width:1120px;margin:35px auto 62px;padding:40px;display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);align-items:center;gap:clamp(28px,4.5vw,64px);border-radius:20px;border:1px solid #183e69;background:radial-gradient(circle at 1% 5%,#1d5496 0,transparent 35%),linear-gradient(125deg,#0b2242,#12365f);box-shadow:0 22px 60px #15395a2b;color:#fff}
