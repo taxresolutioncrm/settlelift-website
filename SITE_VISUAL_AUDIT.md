@@ -101,3 +101,17 @@ Verified in source: balanced HTML sections; single analytics dashboard; no old m
 
 ## Homepage visual density correction — November 21
 Per product owner feedback, the homepage is restricted to two CRM visuals at most: client summary plus one negotiations concept. The four-item showcase was removed. The separate documents, tasks, reporting, creditor, funding, portal, communications, intake and office visual previews remain distributed across dedicated pages, with their illustrative nature disclosed. Regression checks enforce the homepage limit.
+
+## November 21 — pre-deployment corrective audit (HOLD)
+
+Review triggered by screenshots showing an unwanted four-thumbnail gallery on /platform. The first attempted correction was also rejected by audit because it duplicated the exact same client screenshot already embedded in the Platform hero. This duplicate was removed before release.
+
+**Source changes isolated to branch** `fix/settlelift-platform-no-thumbnail-grid-20261121`:
+- Removed the Platform page's four miniature, repetitive interface illustrations and replaced them with a clear four-link navigation to dedicated workflow pages.
+- Retained the existing client overview preview once in the Platform hero; no duplicate image is placed farther down the page.
+- Removed repeated crops of the very same client screenshot from negotiations, creditor management, and reporting. These pages retain their distinct, explicitly labeled illustrative workflow concepts.
+- Removed obsolete Platform gallery and repeated screenshot crop CSS, added responsive workflow navigation styles, updated QA checks.
+- Left the homepage at one client preview and one negotiations concept.
+- Verified 27 public HTML pages for one H1, consistent responsive stylesheet references (Platform version isolated), canonical/description metadata, balanced section tags and no duplicate IDs. Verified local image references, alt attributes, and distinct photography across the inspected marketing pages. Verified CSS brace balance and the no-repeated-screenshot rules.
+
+**RELEASE BLOCKER:** Full live browser visual QA at desktop, tablet, and mobile breakpoints has not been performed, and the marketing SVG feature illustrations are generic concepts rather than captured authenticated CRM screens. The current branch is not signed off for a production deployment. Do not merge or publish it until a real rendered-page check is possible and the product-preview claims and imagery are approved.
