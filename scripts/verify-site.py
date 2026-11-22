@@ -64,7 +64,8 @@ assert all(value in home for value in ['SAMPLE DATA','/login/'])
 assert 'IN DEVELOPMENT' not in home and 'EN DESARROLLO' not in home
 assert 'development preview' not in home
 # Premium redesign invariants (GitHub Actions intentionally not invoked for this release).
-assert all('/premium.css?v=20261121-product-proof' in p.read_text() for p in pages), 'All public pages must use product gallery release stylesheet'
+assert '/premium.css?v=20261121-platform-clean' in (root/'platform/index.html').read_text(), 'Platform stylesheet cache key missing'
+assert all('/premium.css?v=20261121-product-proof' in p.read_text() for p in pages if p!=root/'platform/index.html'), 'Other public pages must retain shared CSS reference'
 assert home.count('images.unsplash.com/')>=3, 'Hero and people section need licensed real photography'
 assert 'sl-premium-analytics' in home and 'sl-analytics-dashboard' in home, 'Premium analytics illustration missing'
 assert 'sl-insights-priorities' in home and 'sl-insights-legend' in home, 'Operational analytics must use the expanded chart and priorities'
@@ -140,7 +141,13 @@ for rel,view in feature_views.items():
  assert svg.startswith('<svg ') and svg.strip().endswith('</svg>'),(view,'Invalid SVG wrapper')
  assert 'NOT A LIVE CRM CAPTURE' in svg,(view,'Product illustration must not be represented as actual screenshot')
  assert '{e(sub)}' not in svg and 'fill="2"' not in svg,(view,'Unrendered templating in SVG')
-assert 'sl-platform-proof' in (root/'platform/index.html').read_text(), 'Platform comparison gallery missing'
+platform=(root/'platform/index.html').read_text()
+assert 'sl-platform-links-nav' in platform and 'sl-platform-links-intro' in platform, 'New Platform section missing'
+assert 'sl-platform-proof-grid' not in platform, 'Unwanted four-image Platform grid must not return'
+assert platform.count('src="/assets/settlelift-client-workspace.jpg"') == 1, 'Use existing Platform hero screenshot only'
+assert all(('/'+route+'/') in platform for route in ['features/intake-enrollment','features/negotiations','features/documents-signatures','workflows/tasks-calendar']), 'Platform feature destinations missing'
+assert 'These are illustrative sample views, not live CRM screenshots.' not in platform, 'Repetitive Platform gallery copy returned'
+assert '.sl-platform-links-nav' in (root/'premium.css').read_text(), 'Responsive Platform navigation styles missing'
 
 assert 'href="/assets/settlelift-client-workspace.jpg"' in home, 'CRM sample must be inspectable at its full original resolution'
 assert '<section class="sl-capability-ribbon"' in home, 'Feature routing strip missing'
