@@ -2,7 +2,7 @@ from pathlib import Path
 from html.parser import HTMLParser
 from urllib.parse import urlsplit,unquote
 import json,xml.etree.ElementTree as ET
-import re
+import re,sys
 root=Path(__file__).resolve().parents[1]/'public'
 class Page(HTMLParser):
  def __init__(self,text):
@@ -57,7 +57,12 @@ for path,page in pages.items():
 locs={x.text for x in ET.parse(root/'sitemap.xml').iter() if x.tag.endswith('}loc')}
 assert locs==seen_canon,('Sitemap mismatch',locs^seen_canon)
 home=(root/'index.html').read_text()
-assert 'sl-editorial-home' in home and 'settlelift-client-workspace.jpg' in home
+real_assets=root/'assets'/'crm-real'
+real_capture_manifest=real_assets/'provenance.json'
+real_capture_mode=real_capture_manifest.exists()
+if '--require-real-crm' in sys.argv:
+ assert real_capture_mode, 'RELEASE BLOCKED: authenticated demo CRM screenshot captures are missing'
+assert 'sl-editorial-home' in home and ('settlelift-client-file-actual.png' if real_capture_mode else 'settlelift-client-workspace.jpg') in home
 assert all(x in home for x in ['sl-network','sl-tour-workbench','sl-bento','sl-launch-board'])
 assert (root/'energy.css').stat().st_size<100000
 assert all(value in home for value in ['SAMPLE DATA','/login/'])
@@ -117,8 +122,12 @@ assert '<section id="workspace" class="sl-product"><div class="sl-container sl-w
 assert 'sl-screen-intro' in home and 'sl-showcase-points' in home and 'sl-workspace-preview' in home, 'Side-by-side CRM composition missing'
 assert 'sl-capability-ribbon' in home, 'Workflow capability strip must appear after hero'
 assert 'sl-product-proof' in home and 'sl-proof-grid' in home, 'Product gallery missing from homepage'
-assert home.count('/assets/product-view-') == 1, 'Homepage must show at most one feature view plus the client workspace image'
-assert '/assets/product-view-negotiations.svg' in home, 'Negotiation preview missing from homepage'
+if real_capture_mode:
+ assert home.count('/assets/product-view-') == 0, 'Homepage must use actual captures only'
+ assert '/assets/crm-real/settlelift-negotiations-actual.png' in home, 'Genuine negotiation capture missing'
+else:
+ assert home.count('/assets/product-view-') == 1, 'Homepage must show at most one feature view plus the client workspace image'
+ assert '/assets/product-view-negotiations.svg' in home, 'Concept preview missing from homepage'
 assert '<img class="sl-product-screen"' in home, 'Existing client workspace preview missing'
 feature_views={
  'features/intake-enrollment/index.html':'intake',
@@ -135,20 +144,22 @@ feature_views={
 for rel,view in feature_views.items():
  page_text=(root/rel).read_text()
  assert 'sl-feature-proof' in page_text,(rel,'Feature gallery missing')
- assert '/assets/product-view-'+view+'.svg' in page_text,(rel,'Incorrect or missing product view')
- assert 'illustrative' in page_text.lower(),(rel,'Missing illustrative disclosure')
- svg=(root/'assets'/('product-view-'+view+'.svg')).read_text()
- assert svg.startswith('<svg ') and svg.strip().endswith('</svg>'),(view,'Invalid SVG wrapper')
- assert 'NOT A LIVE CRM CAPTURE' in svg,(view,'Product illustration must not be represented as actual screenshot')
- assert '{e(sub)}' not in svg and 'fill="2"' not in svg,(view,'Unrendered templating in SVG')
+ if real_capture_mode and view!='portal':
+  assert '/assets/crm-real/settlelift-'+view+'-actual.png' in page_text,(rel,'Genuine CRM screenshot missing')
+ else:
+  assert '/assets/product-view-'+view+'.svg' in page_text,(rel,'Illustrative concept missing')
+  svg=(root/'assets'/('product-view-'+view+'.svg')).read_text()
+  assert svg.startswith('<svg ') and svg.strip().endswith('</svg>'),(view,'Invalid SVG wrapper')
+  assert 'NOT A LIVE CRM CAPTURE' in svg,(view,'Do not misrepresent generated concept as CRM screenshot')
+  assert '{e(sub)}' not in svg and 'fill="2"' not in svg,(view,'Unrendered templating in SVG')
 platform_html=(root/'platform/index.html').read_text()
 assert 'sl-platform-workflow-nav' in platform_html, 'Platform workflow navigation missing'
 assert 'sl-platform-proof-grid' not in platform_html, 'Four-up thumbnail gallery must not return'
-assert platform_html.count('src="/assets/settlelift-client-workspace.jpg"') == 1, 'Platform must not duplicate the client screenshot'
+assert platform_html.count('src="'+('/assets/crm-real/settlelift-client-file-actual.png' if real_capture_mode else '/assets/settlelift-client-workspace.jpg')+'"') == 1, 'Platform must show a single client screenshot'
 assert '<nav class="sl-platform-feature-links"' in platform_html, 'Distinct feature links must replace repeated screenshots'
 assert '.sl-platform-feature-links' in (root/'premium.css').read_text(), 'Workflow navigation styling missing'
 
-assert 'href="/assets/settlelift-client-workspace.jpg"' in home, 'CRM sample must be inspectable at its full original resolution'
+assert 'href="'+('/assets/crm-real/settlelift-client-file-actual.png' if real_capture_mode else '/assets/settlelift-client-workspace.jpg')+'"' in home, 'CRM screenshot must be inspectable at full resolution'
 assert '<section class="sl-capability-ribbon"' in home, 'Feature routing strip missing'
 for name in ['features/intake-enrollment','features/negotiations','features/creditor-management','features/funding-planning','features/client-portal','features/documents-signatures','features/communications','features/reporting','features/multi-office']:
  feature=(root/name/'index.html').read_text()
@@ -173,3 +184,11 @@ assert 'development workspace' not in login, 'Obsolete development access copy'
 assert 'crm-buyer-checklist' in (root/'resources/choosing-debt-settlement-crm/index.html').read_text()
 assert (root/'assets/settlelift-client-workspace.jpg').stat().st_size<250000
 print('PASS: 27 unique pages, metadata/schema/sitemap preserved, all local links/assets/anchors valid, shared styles and language controls present; illustrative sample status and lightweight product image verified.')
+
+# Production gate: it is unacceptable to advertise generated concepts as real CRM screenshots.
+if '--require-real-crm' in sys.argv:
+ assert real_capture_mode, 'Authenticated screenshots not installed'
+ proof=json.loads(real_capture_manifest.read_text())
+ assert proof.get('syntheticDataOnly') is True and str(proof.get('tenantLabel','')).lower().startswith('demo'), 'Screenshot provenance invalid'
+ assert all('/assets/product-view-' not in p.read_text() for p in pages), 'RELEASE BLOCKED: fake/illustrative product views still appear on website'
+ assert all((real_assets/f'settlelift-{name}-actual.png').exists() for name in ['client-file','intake','negotiations','creditors','communications','documents','funding','tasks','reporting','offices']), 'RELEASE BLOCKED: not all actual CRM screenshots captured'
